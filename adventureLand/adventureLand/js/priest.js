@@ -44,7 +44,7 @@ setInterval(function () {
             }
             if (can_use("partyheal")) {
                 let hurtList = partyList.filter(char => char.max_hp - char.hp > 200);
-                if (hurtList.size > 0) {
+                if (hurtList.length > 0) {
                     set_message("partyheal");
                     parent.use_skill("partyheal");
                     hurtList.sort(function (a, b) {
