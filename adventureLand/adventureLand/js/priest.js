@@ -103,7 +103,7 @@ function buy_potions() {
 
 function getPriorityTarget() {
     for (x of targetFirstList) {
-        target = get_nearest_monster({ min_xp: 100, max_att: 120, type: x });
+        target = get_nearest_monster({ min_xp: 100, max_att: max_att_p, type: x });
         if (target) {
             change_target(target);
             set_message("Tgt: " + x);
