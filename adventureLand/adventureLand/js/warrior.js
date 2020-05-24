@@ -15,10 +15,10 @@ setInterval(function () {
     if (buying) {
         buying = buy_potions(pots);
     } else {
-        if (character.max_hp - character.hp > pots[1].gives[1]) {
+        if (character.max_hp - character.hp > get_item(pots[1]).gives[1]) {
             use('use_hp');
         }
-        if (character.max_mp - character.mp > pots[0].gives[1]) {
+        if (character.max_mp - character.mp > get_item(pots[0]).gives[1]) {
             use('use_mp');
         }
         loot();
