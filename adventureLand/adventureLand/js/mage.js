@@ -16,7 +16,7 @@ add_lib("https://levimccracken.github.io/adventureland/adventureLand/adventureLa
 var attack_mode = true
 
 var buying = false;
-var pots = ["mpot1", "mpot1"];
+var pots = ["mpot1", "hpot1"];
 
 setInterval(function () {
 
