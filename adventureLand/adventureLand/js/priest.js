@@ -10,8 +10,10 @@ var targetFirstList = priorityTargets.concat(rareMobs);
 var buying = false;
 var target = null;
 
-function run(){
+function run() {
 
+    set_message("Run");
+    
     if (buying) {
         buy_potions();
     } else {
