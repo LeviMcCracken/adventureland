@@ -16,11 +16,12 @@ add_lib("https://levimccracken.github.io/adventureland/adventureLand/adventureLa
 var attack_mode = true
 
 var buying = false;
+var pots = ["mpot1", "mpot1"];
 
 setInterval(function () {
 
     if (buying) {
-        buy_potions();
+        buying = buy_potions(pots);
     } else {
         if (character.max_hp - character.hp >= 300) {
             use('use_hp');
@@ -31,8 +32,14 @@ setInterval(function () {
         loot();
 
         if (!attack_mode || character.rip || is_moving(character)) return;
+        let runningLow = false;
+        for (pot in pots) {
+            if (item_quantity(pot) < min_pot_thres) {
+                runningLow = true;
+            }
+        }
 
-        if (item_quantity("mpot0") < 20 || item_quantity("hpot0") < 5) {
+        if (runningLow && character.gold >= gold_min_thresh + gold_min_thresh) {
             set_message("Traveling");
             smart_move({ to: "potions", return: true }, function () { setBuying(); });
             // while the smart_move is happening, is_moving is false

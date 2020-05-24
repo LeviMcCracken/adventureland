@@ -19,12 +19,12 @@ var priorityTargets = [];
 var targetFirstList = priorityTargets.concat(rareMobs);
 var buying = false;
 var target = null;
-var max_att_p = 500;
+var pots = ["mpot1", "mpot1"];
 
 setInterval(function () {
 
     if (buying) {
-        buy_potions();
+        buying = buy_potions(pots);
     } else {
         if (character.max_hp - character.hp >= 300) {
             use('use_hp');
@@ -36,8 +36,14 @@ setInterval(function () {
 
         if (!attack_mode || character.rip || is_moving(character)) return;
 
-        if ((item_quantity("mpot0") < 20 || item_quantity("hpot0") < 20) &&
-            character.gold >= 10000) {
+        let runningLow = false;
+        for (pot in pots) {
+            if (item_quantity(pot) < min_pot_thres) {
+                runningLow = true;
+            }
+        }
+
+        if (runningLow && character.gold >= gold_min_thresh + gold_min_thresh) {
             set_message("Traveling");
             smart_move({ to: "potions", return: true }, function () { setBuying(); });
             // while the smart_move is happening, is_moving is false
