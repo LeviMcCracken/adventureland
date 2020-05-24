@@ -8,6 +8,7 @@ var rareMobs = [];
 var priorityTargets = [];
 var targetFirstList = priorityTargets.concat(rareMobs);
 var buying = false;
+var target = null;
 
 setInterval(function () {
 
@@ -33,7 +34,7 @@ setInterval(function () {
             return;
         } else {
 
-            AcquireTarget();
+            acquireTarget();
 
             let partyList = getPartyMembers();
             let warrior = partyList.filter(char => char.ctype == "warrior")[0];
@@ -97,7 +98,7 @@ function buy_potions() {
     }
 }
 
-function GetPriorityTarget() {
+function getPriorityTarget() {
     for (x of targetFirstList) {
         target = get_nearest_monster({ min_xp: 100, max_att: 120, type: x });
         if (target) {
@@ -108,12 +109,12 @@ function GetPriorityTarget() {
     }
 }
 
-function GetDefaultTarget() {
+function getDefaultTarget() {
     target = get_nearest_monster({ min_xp: 100, max_att: 120 });
     if (target) set_message("Tgt: Def");
 }
 
-function GetEngagedTarget() {
+function getEngagedTarget() {
     var party = get_party();
     for (x in party) {
         target = get_nearest_monster({ target: x });
@@ -121,17 +122,14 @@ function GetEngagedTarget() {
     if (target) set_message("Tgt: Host");
 }
 
-function GetLeadersTarget() {
+function getLeadersTarget() {
     var leader = get_player(character.party);
-    var leaderTarget = get_target_of(leader)
-    if ((!target) || ((leaderTarget) && (target != leaderTarget))) {
-        target = leaderTarget;
-    }
+    return get_target_of(leader);
 
     //if(target) set_message("Tgt: Lead");
 }
 
-function AcquireTarget() {
+function acquireTarget() {
     let target = get_targeted_monster();
     if (!target) GetLeadersTarget();
     if (!target) GetPriorityTarget();
