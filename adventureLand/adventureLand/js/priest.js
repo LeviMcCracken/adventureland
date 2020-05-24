@@ -144,7 +144,7 @@ function AcquireTarget() {
     return true;
 }
 
-function getPartyMembers() {
+export function getPartyMembers() {
     return Object.values(parent.entities).filter(char =>
         is_character(char) && !char.rip &&
         char.party && char.party === character.party);
