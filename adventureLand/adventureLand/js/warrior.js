@@ -15,6 +15,7 @@ setInterval(function () {
     if (buying) {
         buying = buy_potions(pots);
     } else {
+        set_message(pots);
         if (character.max_hp - character.hp > get_item(pots[1]).get("gives")[1]) {
             use('use_hp');
         }
