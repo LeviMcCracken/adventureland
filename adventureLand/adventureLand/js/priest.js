@@ -113,7 +113,7 @@ function getPriorityTarget() {
 }
 
 function getDefaultTarget() {
-    target = get_nearest_monster({ min_xp: 100, max_att: 120 });
+    target = get_nearest_monster({ min_xp: 100, max_att: max_att_p });
     if (target) set_message("Tgt: Def");
 }
 
