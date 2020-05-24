@@ -11,6 +11,7 @@ function add_lib(lib_src) {
 }
 
 add_lib("https://levimccracken.github.io/adventureland/adventureLand/adventureLand/js/util.js");
+add_lib("https://levimccracken.github.io/adventureland/adventureLand/adventureLand/js/config.js");
 
 var attack_mode = true
 var rareMobs = [];

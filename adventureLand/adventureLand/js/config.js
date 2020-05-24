@@ -1,0 +1,1 @@
+var max_att_p = 500;
