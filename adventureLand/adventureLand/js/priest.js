@@ -9,6 +9,7 @@ var priorityTargets = [];
 var targetFirstList = priorityTargets.concat(rareMobs);
 var buying = false;
 var target = null;
+var max_att_p = 500;
 
 setInterval(function () {
 
