@@ -132,19 +132,15 @@ function GetLeadersTarget() {
 }
 
 function AcquireTarget() {
-    target = get_targeted_monster();
+    let target = get_targeted_monster();
     if (!target) GetLeadersTarget();
     if (!target) GetPriorityTarget();
     if (!target) GetEngagedTarget();
 
-    if (!target) {
-        //set_message("Tgt: None");
-        return false;
-    }
-    return true;
+    return target;
 }
 
-export function getPartyMembers() {
+function getPartyMembers() {
     return Object.values(parent.entities).filter(char =>
         is_character(char) && !char.rip &&
         char.party && char.party === character.party);
