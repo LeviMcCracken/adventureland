@@ -130,10 +130,10 @@ function getLeadersTarget() {
 }
 
 function acquireTarget() {
-    let target = get_targeted_monster();
-    if (!target) GetLeadersTarget();
-    if (!target) GetPriorityTarget();
-    if (!target) GetEngagedTarget();
+    target = get_targeted_monster();
+    if (!target) getLeadersTarget();
+    if (!target) getPriorityTarget();
+    if (!target) getEngagedTarget();
 
     return target;
 }
