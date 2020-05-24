@@ -52,6 +52,9 @@ setInterval(function () {
                     }
                     );
                 }
+                else {
+                    set_message("All Healed");
+                }
             }
 
             if (null != target && !is_in_range(target)) {
