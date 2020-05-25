@@ -118,5 +118,12 @@ function isNeedMorePots() {
 }
 
 function lets_go() {
-    send_cm(getPartyMembers()[0].name, "Need Pots");
+    let party = getPartyMembers();
+    for (member in party){
+        send_cm(member.name, "Need Pots");
+    }
+}
+
+function on_cm(name, data) {
+    console.log(name + " sent:" + data);
 }
