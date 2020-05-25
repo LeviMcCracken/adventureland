@@ -53,6 +53,7 @@ function getEngagedTarget() {
 
 function getLeadersTarget() {
     var leader = get_player(character.party);
+    set_message(character.party);
     return get_target_of(leader);
 }
 
