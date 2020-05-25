@@ -1,9 +1,4 @@
-﻿// Hey there!
-// This is CODE, lets you control your character with code.
-// If you don't know how to code, don't worry, It's easy.
-// Just set attack_mode to true and ENGAGE!
-
-add_lib("https://levimccracken.github.io/adventureland/adventureLand/adventureLand/js/config.js");
+﻿add_lib("https://levimccracken.github.io/adventureland/adventureLand/adventureLand/js/config.js");
 add_lib("https://levimccracken.github.io/adventureland/adventureLand/adventureLand/js/util.js");
 
 var attack_mode = true
@@ -12,7 +7,7 @@ var priorityTargets = [];
 var targetFirstList = priorityTargets.concat(rareMobs);
 var buying = false;
 var target = null;
-var pots = [G.item.mpot1, G.item.hpot1];
+var pots = [G.items.mpot1, G.items.hpot1];
 
 setInterval(function () {
 
