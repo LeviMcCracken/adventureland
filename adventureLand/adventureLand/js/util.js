@@ -120,8 +120,8 @@ function isNeedMorePots() {
 function lets_go() {
     let party = getPartyMembers();
     for (member in party) {
-        console.log("lets_go:" + member);
-        send_cm(member.name, "Need Pots");
+        console.log("lets_go:" + party[member]);
+        send_cm(party[member].name, "Need Pots");
     }
 }
 
