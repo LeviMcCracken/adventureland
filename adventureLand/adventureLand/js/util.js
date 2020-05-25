@@ -76,12 +76,12 @@ function acquireTarget(c) {
     if (!ret) {
         ret = getLeadersTarget(c);
     }
-    if (!ret) {
-        ret = getPriorityTarget();
-    }
-    if (!ret) {
-        ret = getEngagedTarget();
-    }
+    //if (!ret) {
+    //    ret = getPriorityTarget();
+    //}
+    //if (!ret) {
+    //    ret = getEngagedTarget();
+    //}
 
     return ret;
 }
