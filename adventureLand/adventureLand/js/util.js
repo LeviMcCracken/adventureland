@@ -16,19 +16,6 @@ function setBuying() {
     buying = true;
 }
 
-function buy_potions(list) {
-    let ret = false;
-    for (item in list){
-        if (item_quantity(item.id) < buy_potions_up_to) {
-            buy(item.id, pots_at_a_time);
-            ret = true;
-        }
-    }
-    if (character.gold <= gold_min_thresh) {
-        ret = false;
-    }
-    return ret;
-}
 
 function buy_potion(name) {
     if (item_quantity(name) < buy_potions_up_to) {
