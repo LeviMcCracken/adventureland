@@ -28,9 +28,9 @@ function buy_potion(name) {
     return true;
 }
 
-function buy_potions(s) {
+function buy_potions() {
     let needMore = false;
-    for (pot in s) {
+    for (pot in pots) {
         console.log("buy_potions:" + pot + " " + pot.id);
         if (buy_potion(pot.id)) {
             needMore = true;
@@ -99,11 +99,11 @@ function getMonsters() {
         is_monster(e));
 }
 
-function use_pots(s) {
-    if (character.max_hp - character.hp >= s[1].gives[0][1]) {
+function use_pots() {
+    if (character.max_hp - character.hp >= pots[1].gives[0][1]) {
         use('use_hp');
     }
-    if (character.max_mp - character.mp >= s[0].gives[0][1]) {
+    if (character.max_mp - character.mp >= pots[0].gives[0][1]) {
         use('use_mp');
     }
 }
