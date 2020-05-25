@@ -99,12 +99,11 @@ function getMonsters() {
         is_monster(e));
 }
 
-function use_pots(pots) {
-    if (character.max_hp - character.hp >= pots[1].gives[0][1]) {
+function use_pots(s) {
+    if (character.max_hp - character.hp >= s[1].gives[0][1]) {
         use('use_hp');
     }
-    console.log(pots[0].gives[1]);
-    if (character.max_mp - character.mp >= pots[0].gives[0][1]) {
+    if (character.max_mp - character.mp >= s[0].gives[0][1]) {
         use('use_mp');
     }
 }
