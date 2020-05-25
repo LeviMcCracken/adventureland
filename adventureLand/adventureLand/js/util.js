@@ -120,11 +120,22 @@ function isNeedMorePots() {
 function lets_go() {
     let party = getPartyMembers();
     for (member in party) {
-        console.log("lets_go:" + party[member]);
         send_cm(party[member].name, "Need Pots");
     }
 }
 
+function in_party(name) {
+    let party = getPartyMembers();
+    for (member in party) {
+        if (name == party[member].name){
+            return true;
+        }
+    }
+    return false;
+}
+
 character.on("cm", function (data) {
-    console.log("cm:" + data.message );
+    if (in_party(data.name)){
+        game_log("cm:" + data.name + ":" + data.message);
+    }
 });
