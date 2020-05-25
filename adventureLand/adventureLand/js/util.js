@@ -124,6 +124,6 @@ function lets_go() {
     }
 }
 
-function on_cm(name, data) { {
+function on_cm(name, data) {
     console.log("cm:" + data);
-});
+}
