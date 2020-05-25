@@ -59,9 +59,15 @@ function getLeadersTarget() {
 
 function acquireTarget() {
     let ret = get_targeted_monster();
-    if (!ret) getLeadersTarget();
-    if (!ret) getPriorityTarget();
-    if (!ret) getEngagedTarget();
+    if (!ret) {
+        ret = getLeadersTarget();
+    }
+    if (!ret) {
+        ret = getPriorityTarget();
+    }
+    if (!ret) {
+        ret = getEngagedTarget();
+    }
 
     return ret;
 }
