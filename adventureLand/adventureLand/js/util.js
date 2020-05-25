@@ -134,7 +134,7 @@ function in_party(name) {
     }
     return false;
 }
-]
+
 function get_pots() {
     set_message("Traveling");
     smart_move({ to: "potions", return: true }, function () { setBuying(); });
