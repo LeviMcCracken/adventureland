@@ -36,6 +36,7 @@ setInterval(function () {
         }
         if (can_use("curse") &&
             character.level >= G.skills.curse.level) {
+            console.log("curse: " + target);
             parent.use_skill("curse", target);
         }
         if (can_use("partyheal")) {
