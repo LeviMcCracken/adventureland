@@ -92,3 +92,14 @@ function use_pots(pots) {
         use('use_mp');
     }
 }
+
+function isNeedMorePots() {
+    let runningLow = false;
+    for (pot in pots) {
+        let quant = item_quantity(pot);
+        if (null == quant || quant < min_pot_thresh) {
+            runningLow = true;
+        }
+    }
+    return runningLow;
+}

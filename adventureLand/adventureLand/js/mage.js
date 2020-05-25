@@ -16,15 +16,8 @@ setInterval(function () {
         loot();
 
         if (!attack_mode || character.rip || is_moving(character)) return;
-
-        let runningLow = false;
-        for (pot in pots) {
-            if (item_quantity(pot) < min_pot_thresh) {
-                runningLow = true;
-            }
-        }
-
-        if (runningLow && character.gold >= gold_min_thresh + gold_min_thresh) {
+        
+        if (isNeedMorePots() && character.gold >= gold_min_thresh + gold_min_thresh) {
             set_message("Traveling");
             smart_move({ to: "potions", return: true }, function () { setBuying(); });
             // while the smart_move is happening, is_moving is false
