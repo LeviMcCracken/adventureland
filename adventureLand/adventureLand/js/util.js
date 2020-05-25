@@ -18,10 +18,11 @@ function setBuying() {
 
 
 function buy_potion(name) {
-    if (item_quantity(name) < buy_potions_up_to) {
+    let quant = item_quantity(name);
+    console.log("Have:" + quant + " " + name);
+    if (quant < buy_potions_up_to) {
         buy(name, pots_at_a_time);
-    }
-    if (item_quantity(name) > buy_potions_up_to) {
+    } else {
         return false;
     }
     return true;
@@ -34,7 +35,8 @@ function buy_potions(pots) {
             needMore = true;
         }
     }
-    if (!needMore || character.gold <= gold_min_thresh){
+    if (!needMore || character.gold <= gold_min_thresh) {
+        set_message("done buying");
         return false;
     }
     return true;
