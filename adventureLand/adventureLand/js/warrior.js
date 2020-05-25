@@ -58,18 +58,3 @@ setInterval(function () {
         }
     }
 }, 1000 / 4); // Loops every 1/4 seconds.
-
-
-function buy_potions(list) {
-    let ret = false;
-    for (item in list) {
-        if (item_quantity(item.id) < buy_potions_up_to) {
-            buy(item.id, pots_at_a_time);
-            ret = true;
-        }
-    }
-    if (character.gold <= gold_min_thresh) {
-        ret = false;
-    }
-    return ret;
-}
