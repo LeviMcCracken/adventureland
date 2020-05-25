@@ -54,17 +54,15 @@ function getEngagedTarget() {
 function getLeadersTarget() {
     var leader = get_player(character.party);
     return get_target_of(leader);
-
-    if(target) set_message("Tgt: Lead");
 }
 
 function acquireTarget() {
-    let target = get_targeted_monster();
-    if (!target) getLeadersTarget();
-    if (!target) getPriorityTarget();
-    if (!target) getEngagedTarget();
+    let ret = get_targeted_monster();
+    if (null == ret) getLeadersTarget();
+    if (null == ret) getPriorityTarget();
+    if (null == ret) getEngagedTarget();
 
-    return target;
+    return ret;
 }
 
 function getPartyMembers() {
