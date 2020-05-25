@@ -124,6 +124,6 @@ function lets_go() {
     }
 }
 
-character.on("cm", function (data) {
-    game_log("cm:" + data);
+function on_cm(name, data) { {
+    console.log("cm:" + data);
 });
