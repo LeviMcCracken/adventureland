@@ -10,8 +10,8 @@ function add_lib(lib_src) {
     document.getElementsByTagName("head")[0].appendChild(library);
 }
 
-add_lib("https://levimccracken.github.io/adventureland/adventureLand/adventureLand/js/util.js");
 add_lib("https://levimccracken.github.io/adventureland/adventureLand/adventureLand/js/config.js");
+add_lib("https://levimccracken.github.io/adventureland/adventureLand/adventureLand/js/util.js");
 
 var attack_mode = true
 
@@ -23,15 +23,16 @@ setInterval(function () {
     if (buying) {
         buying = buy_potions(pots);
     } else {
-        if (character.max_hp - character.hp >= 300) {
+        if (character.max_hp - character.hp >= get_item(pots[1]).get("gives")[1]) {
             use('use_hp');
         }
-        if (character.max_mp - character.mp >= 300) {
+        if (character.max_mp - character.mp >= get_item(pots[0]).get("gives")[1]) {
             use('use_mp');
         }
         loot();
 
         if (!attack_mode || character.rip || is_moving(character)) return;
+
         let runningLow = false;
         for (pot in pots) {
             if (item_quantity(pot) < min_pot_thres) {
@@ -53,7 +54,7 @@ setInterval(function () {
             set_message("Defending:" + targetingMe.length);
             if (targetingMe.length > 0) {
                 target = targetingMe[0];
-            } else if (null == target && character.max_hp - character.hp > 300) {
+            } else if (null == target && character.max_hp - character.hp > get_item(pots[1]).get("gives")[1] + 100) {
                 set_message("Healing Break");
             } else {
                 target = get_nearest_monster({ min_xp: 100, max_att: max_att_p });
@@ -93,43 +94,3 @@ setInterval(function () {
         }
     }
 }, 1000 / 4); // Loops every 1/4 seconds.
-
-function getPartyMembers() {
-    return Object.values(parent.entities).filter(char =>
-        is_character(char) && !char.rip &&
-        char.party && char.party === character.party);
-}
-
-function getMonsters() {
-    return Object.values(parent.entities).filter(e => is_monster(e));
-}
-
-function item_quantity(name) {
-    for (var i = 0; i < 42; i++) {
-        if (character.items[i] && character.items[i].name == name) {
-            return character.items[i].q || 0;
-        }
-    }
-    return 0;
-}
-
-function setBuying() {
-    set_message("Buying");
-    buying = true;
-}
-
-function buy_potions() {
-    if (item_quantity("mpot0") < 1000) {
-        buy("mpot0", 100);
-    }
-    if (item_quantity("hpot0") < 1000) {
-        buy("hpot0", 100);
-    }
-    if (character.gold <= 5000 ||
-        (item_quantity("hpot0") > 1000 && item_quantity("mpot0") > 1000)) {
-        buying = false;
-    }
-}
-
-// Learn Javascript: https://www.codecademy.com/learn/introduction-to-javascript
-// Write your own CODE: https://github.com/kaansoral/adventureland

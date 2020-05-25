@@ -10,8 +10,8 @@ function add_lib(lib_src) {
     document.getElementsByTagName("head")[0].appendChild(library);
 }
 
-add_lib("https://levimccracken.github.io/adventureland/adventureLand/adventureLand/js/util.js");
 add_lib("https://levimccracken.github.io/adventureland/adventureLand/adventureLand/js/config.js");
+add_lib("https://levimccracken.github.io/adventureland/adventureLand/adventureLand/js/util.js");
 
 var attack_mode = true
 var rareMobs = [];
@@ -25,11 +25,10 @@ setInterval(function () {
     if (buying) {
         buying = buy_potions(pots);
     } else {
-        set_message(pots);
-        if (character.max_hp - character.hp > get_item(pots[1]).get("gives")[1]) {
+        if (character.max_hp - character.hp >= get_item(pots[1]).get("gives")[1]) {
             use('use_hp');
         }
-        if (character.max_mp - character.mp > get_item(pots[0]).get("gives")[1]) {
+        if (character.max_mp - character.mp >= get_item(pots[0]).get("gives")[1]) {
             use('use_mp');
         }
         loot();

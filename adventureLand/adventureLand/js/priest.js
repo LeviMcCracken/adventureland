@@ -10,8 +10,8 @@ function add_lib(lib_src) {
     document.getElementsByTagName("head")[0].appendChild(library);
 }
 
-add_lib("https://levimccracken.github.io/adventureland/adventureLand/adventureLand/js/util.js");
 add_lib("https://levimccracken.github.io/adventureland/adventureLand/adventureLand/js/config.js");
+add_lib("https://levimccracken.github.io/adventureland/adventureLand/adventureLand/js/util.js");
 
 var attack_mode = true
 var rareMobs = [];
@@ -26,10 +26,10 @@ setInterval(function () {
     if (buying) {
         buying = buy_potions(pots);
     } else {
-        if (character.max_hp - character.hp >= 300) {
+        if (character.max_hp - character.hp >= get_item(pots[1]).get("gives")[1]) {
             use('use_hp');
         }
-        if (character.max_mp - character.mp >= 300) {
+        if (character.max_mp - character.mp >= get_item(pots[0]).get("gives")[1]) {
             use('use_mp');
         }
         loot();
@@ -60,7 +60,7 @@ setInterval(function () {
                 parent.use_skill("darkblessing", warrior);
             }
             if (can_use("partyheal")) {
-                let hurtList = partyList.filter(char => char.max_hp - char.hp > 200);
+                let hurtList = partyList.filter(char => char.max_hp - char.hp > get_item(pots[1]).get("gives")[1] + 100);
                 if (hurtList.length > 0) {
                     set_message("partyheal");
                     parent.use_skill("partyheal");
@@ -90,5 +90,3 @@ setInterval(function () {
     }
 }, 1000 / 4); // Loops every 1/4 seconds.
 
-// Learn Javascript: https://www.codecademy.com/learn/introduction-to-javascript
-// Write your own CODE: https://github.com/kaansoral/adventureland
