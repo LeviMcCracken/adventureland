@@ -35,6 +35,7 @@ setInterval(function () {
         }
 
         target = acquireTarget();
+        set_message(target);
         if (null != target) {
             if (character.hp > character.max_hp / 2) {
                 parent.use_skill("taunt", target);
