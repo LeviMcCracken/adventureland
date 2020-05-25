@@ -126,5 +126,5 @@ function lets_go() {
 }
 
 character.on("cm", function (data) {
-    console.log("cm:" + data );
+    console.log("cm:" + data.message );
 });
