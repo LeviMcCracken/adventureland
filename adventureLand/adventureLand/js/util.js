@@ -30,7 +30,8 @@ function buy_potion(name) {
 
 function buy_potions(s) {
     let needMore = false;
-    for (pot in s){
+    for (pot in s) {
+        console.log("buy_potions:" + pot + " " + pot.id);
         if (buy_potion(pot.id)) {
             needMore = true;
         }
