@@ -49,7 +49,7 @@ setInterval(function () {
                 parent.use_skill("darkblessing", warrior);
             }
             if (can_use("partyheal")) {
-                let hurtList = partyList.filter(char => char.max_hp - char.hp > get_item(pots[1]).get("gives")[1] + 100);
+                let hurtList = partyList.filter(char => char.max_hp - char.hp > partyheal_thresh);
                 if (hurtList.length > 0) {
                     set_message("partyheal");
                     parent.use_skill("partyheal");
