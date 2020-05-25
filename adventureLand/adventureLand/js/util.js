@@ -1,4 +1,3 @@
-
 function get_item(name) {
     for (var i = 0; i < 42; i++) {
         if (character.items[i] && character.items[i].name == name) {
@@ -69,7 +68,7 @@ function getLeadersTarget() {
     var leader = get_player(character.party);
     return get_target_of(leader);
 
-    //if(target) set_message("Tgt: Lead");
+    if(target) set_message("Tgt: Lead");
 }
 
 function acquireTarget() {

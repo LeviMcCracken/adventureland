@@ -1,10 +1,5 @@
-// Hey there!
-// This is CODE, lets you control your character with code.
-// If you don't know how to code, don't worry, It's easy.
-// Just set attack_mode to true and ENGAGE!
-
-//add_lib("https://levimccracken.github.io/adventureland/adventureLand/adventureLand/js/config.js");
-//add_lib("https://levimccracken.github.io/adventureland/adventureLand/adventureLand/js/util.js");
+add_lib("https://levimccracken.github.io/adventureland/adventureLand/adventureLand/js/config.js");
+add_lib("https://levimccracken.github.io/adventureland/adventureLand/adventureLand/js/util.js");
 
 var attack_mode = true
 var rareMobs = [];
