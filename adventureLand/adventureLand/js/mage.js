@@ -23,7 +23,7 @@ setInterval(function () {
 
         let runningLow = false;
         for (pot in pots) {
-            if (item_quantity(pot) < min_pot_thres) {
+            if (item_quantity(pot) < min_pot_thresh) {
                 runningLow = true;
             }
         }
