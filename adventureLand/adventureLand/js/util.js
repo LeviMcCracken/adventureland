@@ -67,8 +67,10 @@ function getEngagedTarget() {
 
 function getLeadersTarget(c) {
     var leader = get_player(c.party);
-    set_message(c.party);
-    return get_target_of(leader);
+    let t = get_target_of(leader);
+    if (null != t){
+        set_message(c.party + ":" + t.name);
+    }
 }
 
 function acquireTarget(c) {
