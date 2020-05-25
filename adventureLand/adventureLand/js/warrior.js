@@ -3,6 +3,16 @@
 // If you don't know how to code, don't worry, It's easy.
 // Just set attack_mode to true and ENGAGE!
 
+function add_lib(lib_src) {
+    var library = document.createElement("script");
+    library.type = "text/javascript";
+    library.src = lib_src;
+    document.getElementsByTagName("head")[0].appendChild(library);
+}
+
+add_lib("https://levimccracken.github.io/adventureland/adventureLand/adventureLand/js/util.js");
+add_lib("https://levimccracken.github.io/adventureland/adventureLand/adventureLand/js/config.js");
+
 var attack_mode = true
 var rareMobs = [];
 var priorityTargets = [];
