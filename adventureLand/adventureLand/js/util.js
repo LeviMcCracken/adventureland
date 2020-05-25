@@ -59,11 +59,9 @@ function getLeadersTarget() {
 
 function acquireTarget() {
     let ret = get_targeted_monster();
-    if (null == ret) getLeadersTarget();
-    if (null == ret) getPriorityTarget();
-    if (null == ret) getEngagedTarget();
-    
-    set_message(ret);
+    if (!ret) getLeadersTarget();
+    if (!ret) getPriorityTarget();
+    if (!ret) getEngagedTarget();
 
     return ret;
 }
