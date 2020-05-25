@@ -35,7 +35,7 @@ setInterval(function () {
             return;
         } else {
 
-            acquireTarget();
+            target = acquireTarget();
 
             let partyList = getPartyMembers();
             let warrior = partyList.filter(char => char.ctype == "warrior")[0];
