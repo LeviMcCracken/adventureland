@@ -21,7 +21,20 @@ function buy_potion(name) {
     if (item_quantity(name) < buy_potions_up_to) {
         buy(name, pots_at_a_time);
     }
-    if (character.gold <= gold_min_thresh || item_quantity(name) > buy_potions_up_to) {
+    if (item_quantity(name) > buy_potions_up_to) {
+        return false;
+    }
+    return true;
+}
+
+function buy_potions(pots) {
+    let needMore = false;
+    for (pot in pots){
+        if (buy_potion(pot.id)) {
+            needMore = true;
+        }
+    }
+    if (!needMore || character.gold <= gold_min_thresh){
         return false;
     }
     return true;
@@ -96,7 +109,7 @@ function use_pots(pots) {
 function isNeedMorePots() {
     let runningLow = false;
     for (pot in pots) {
-        let quant = item_quantity(pot.name);
+        let quant = item_quantity(pot.id);
         console.log(quant + " " + pot);
         if (null == quant || quant < min_pot_thresh) {
             runningLow = true;
