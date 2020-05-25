@@ -28,10 +28,10 @@ function buy_potion(name) {
     return true;
 }
 
-function buy_potions(pots) {
-    console.log(pots);
+function buy_potions(s) {
+    console.log(s);
     let needMore = false;
-    for (pot in pots){
+    for (pot in s){
         if (buy_potion(pot)) {
             needMore = true;
         }
