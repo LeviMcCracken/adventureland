@@ -31,8 +31,8 @@ function buy_potion(name) {
 function buy_potions() {
     let needMore = false;
     for (pot in pots) {
-        console.log("buy_potions:" + pots[pot] + " " + pot.id);
-        if (buy_potion(pot.id)) {
+        console.log("buy_potions:" + pots[pot] + " " + pots[pot].id);
+        if (buy_potion(pots[pot].id)) {
             needMore = true;
         }
     }
