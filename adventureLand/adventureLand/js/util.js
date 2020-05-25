@@ -96,7 +96,7 @@ function use_pots(pots) {
 function isNeedMorePots() {
     let runningLow = false;
     for (pot in pots) {
-        let quant = item_quantity(pot);
+        let quant = item_quantity(pot.name);
         console.log(quant + " " + pot);
         if (null == quant || quant < min_pot_thresh) {
             runningLow = true;
