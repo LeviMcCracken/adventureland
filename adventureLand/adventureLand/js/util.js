@@ -20,8 +20,8 @@ function setBuying() {
 function buy_potions(list) {
     let ret = false;
     for (item in list){
-        if (item_quantity(item) < buy_potions_up_to) {
-            buy(item, pots_at_a_time);
+        if (item_quantity(item.id) < buy_potions_up_to) {
+            buy(item.id, pots_at_a_time);
             ret = true;
         }
     }

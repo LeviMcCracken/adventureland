@@ -12,7 +12,7 @@ var priorityTargets = [];
 var targetFirstList = priorityTargets.concat(rareMobs);
 var buying = false;
 var target = null;
-var pots = ["mpot1", "hpot1"];
+var pots = [G.item.mpot1, G.item.hpot1];
 
 setInterval(function () {
 
