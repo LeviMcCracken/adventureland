@@ -116,3 +116,7 @@ function isNeedMorePots() {
     }
     return runningLow;
 }
+
+function lets_go() {
+    send_cm(getPartyMembers(), "Need Pots");
+}
