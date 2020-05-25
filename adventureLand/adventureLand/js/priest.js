@@ -34,6 +34,10 @@ setInterval(function () {
             character.level >= G.skills.darkblessing.level) {
             parent.use_skill("darkblessing", warrior);
         }
+        if (can_use("curse") &&
+            character.level >= G.skills.curse.level) {
+            parent.use_skill("curse", target);
+        }
         if (can_use("partyheal")) {
             let hurtList = partyList.filter(char => char.max_hp - char.hp > partyheal_thresh);
             if (hurtList.length > 0) {
