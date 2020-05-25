@@ -8,7 +8,7 @@ function get_item(name) {
 }
 
 function item_quantity(name) {
-    return get_item(name).q;
+    return get_item(name).q||0;
 }
 
 function setBuying() {
@@ -111,7 +111,7 @@ function use_pots() {
 function isNeedMorePots() {
     let runningLow = false;
     for (pot in pots) {
-        let quant = item_quantity(pot.id);
+        let quant = item_quantity(pots[pot].id);
         if (null == quant || quant < min_pot_thresh) {
             runningLow = true;
         }
