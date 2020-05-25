@@ -43,7 +43,7 @@ setInterval(function () {
             set_message("Defending:" + targetingMe.length);
             if (targetingMe.length > 0) {
                 target = targetingMe[0];
-            } else if (null == target && character.max_hp - character.hp > get_item(pots[1]).get("gives")[1] + 100) {
+            } else if (null == target && character.max_hp - character.hp > pots[1].gives[1] + 100) {
                 set_message("Healing Break");
             } else {
                 target = get_nearest_monster({ min_xp: 100, max_att: max_att_p });
