@@ -124,6 +124,7 @@ function lets_go() {
     }
 }
 
-function on_cm(name, data) {
-    console.log(name + " sent:" + data);
-}
+game.all(function (name, data) {
+    data.event_name = name;
+    console.log("GaveEvent:" + name);
+});
