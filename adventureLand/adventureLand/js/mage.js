@@ -14,7 +14,7 @@ setInterval(function () {
         if (character.max_hp - character.hp >= pots[1].gives[1]) {
             use('use_hp');
         }
-        set_message(pots[0].gives[1]);
+        console.log(pots[0].gives[1]);
         if (character.max_mp - character.mp >= pots[0].gives[1]) {
             use('use_mp');
         }
