@@ -62,6 +62,8 @@ function acquireTarget() {
     if (null == ret) getLeadersTarget();
     if (null == ret) getPriorityTarget();
     if (null == ret) getEngagedTarget();
+    
+    set_message(ret);
 
     return ret;
 }
