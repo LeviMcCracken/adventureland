@@ -11,9 +11,9 @@ var pots = [G.items.mpot0, G.items.hpot1];
 setInterval(function () {
 
     if (buying) {
-        buying = buy_potions(pots);
+        buying = buy_potions();
     } else {
-        use_pots(pots);
+        use_pots();
 
         loot();
 

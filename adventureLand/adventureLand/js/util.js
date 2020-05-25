@@ -19,7 +19,6 @@ function setBuying() {
 
 function buy_potion(name) {
     let quant = item_quantity(name);
-    console.log("Have:" + quant + " " + name);
     if (quant < buy_potions_up_to) {
         buy(name, pots_at_a_time);
     } else {
@@ -31,7 +30,6 @@ function buy_potion(name) {
 function buy_potions() {
     let needMore = false;
     for (pot in pots) {
-        console.log("buy_potions:" + pots[pot] + " " + pots[pot].id);
         if (buy_potion(pots[pot].id)) {
             needMore = true;
         }
