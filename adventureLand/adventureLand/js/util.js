@@ -118,5 +118,5 @@ function isNeedMorePots() {
 }
 
 function lets_go() {
-    send_cm(getPartyMembers(), "Need Pots");
+    send_cm(getPartyMembers()[0], "Need Pots");
 }
