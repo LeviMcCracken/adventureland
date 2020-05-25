@@ -59,7 +59,7 @@ function getLeadersTarget() {
 }
 
 function acquireTarget() {
-    target = get_targeted_monster();
+    let target = get_targeted_monster();
     if (!target) getLeadersTarget();
     if (!target) getPriorityTarget();
     if (!target) getEngagedTarget();

@@ -34,7 +34,7 @@ setInterval(function () {
 
             var target = get_targeted_monster();
             let targetingMe = getMonsters().filter(m => m.target == character.name);
-            //set_message("Defending:" + targetingMe.length);
+            set_message("Defending:" + targetingMe.length);
             if (targetingMe.length > 0) {
                 target = targetingMe[0];
             } else if (null == target && character.max_hp - character.hp > pots[1].gives[1] + 100) {
