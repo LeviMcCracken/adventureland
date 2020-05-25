@@ -31,7 +31,7 @@ function buy_potion(name) {
 function buy_potions(pots) {
     let needMore = false;
     for (pot in pots){
-        if (buy_potion(pot.id)) {
+        if (buy_potion(pot)) {
             needMore = true;
         }
     }
@@ -112,7 +112,6 @@ function isNeedMorePots() {
     let runningLow = false;
     for (pot in pots) {
         let quant = item_quantity(pot.id);
-        console.log(quant + " " + pot);
         if (null == quant || quant < min_pot_thresh) {
             runningLow = true;
         }
