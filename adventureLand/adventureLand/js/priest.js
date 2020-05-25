@@ -34,9 +34,7 @@ setInterval(function () {
             character.level >= G.skills.darkblessing.level) {
             parent.use_skill("darkblessing", warrior);
         }
-        if (can_use("curse") &&
-            character.level >= G.skills.curse.level) {
-            console.log("curse: " + target);
+        if (can_use("curse")) {
             parent.use_skill("curse", target);
         }
         if (can_use("partyheal")) {
