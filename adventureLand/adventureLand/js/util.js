@@ -118,6 +118,7 @@ function isNeedMorePots() {
 }
 
 function lets_go() {
+    get_pots();
     let party = getPartyMembers();
     for (member in party) {
         send_cm(party[member].name, "Need Pots");
@@ -133,9 +134,17 @@ function in_party(name) {
     }
     return false;
 }
+]
+function get_pots() {
+    set_message("Traveling");
+    smart_move({ to: "potions", return: true }, function () { setBuying(); });
+}
 
 character.on("cm", function (data) {
     if (in_party(data.name)){
         game_log("cm:" + data.name + ":" + data.message);
+        if (data.message == "Need Pots"){
+            get_pots();
+        }
     }
 });

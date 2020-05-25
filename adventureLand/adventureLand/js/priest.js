@@ -22,49 +22,45 @@ setInterval(function () {
         
         if (isNeedMorePots() && character.gold >= gold_min_thresh + gold_min_thresh) {
             lets_go();
-            set_message("Traveling");
-            smart_move({ to: "potions", return: true }, function () { setBuying(); });
-            // while the smart_move is happening, is_moving is false
-            // therefore the attack routine doesn't execute
+            get_pots();
             return;
-        } else {
-
-            target = acquireTarget(character);
-
-            let partyList = getPartyMembers();
-            let warrior = partyList.filter(char => char.ctype == "warrior")[0];
-            if (can_use("darkblessing") &&
-                character.level >= G.skills.darkblessing.level) {
-                parent.use_skill("darkblessing", warrior);
-            }
-            if (can_use("partyheal")) {
-                let hurtList = partyList.filter(char => char.max_hp - char.hp > partyheal_thresh);
-                if (hurtList.length > 0) {
-                    set_message("partyheal");
-                    parent.use_skill("partyheal");
-                    hurtList.sort(function (a, b) {
-                        return (b.max_hp - b.hp) - (a.max_hp - a.hp)
-                    }
-                    );
-                }
-                else {
-                    set_message("All Healed");
-                }
-            }
-
-            if (null != target && !is_in_range(target)) {
-                move(
-                    character.x + (target.x - character.x) / 2,
-                    character.y + (target.y - character.y) / 2
-                );
-                // Walk half the distance
-            }
-            else if (can_attack(target)) {
-                attack(target);
-            }
-
-
         }
+
+        target = acquireTarget(character);
+
+        let partyList = getPartyMembers();
+        let warrior = partyList.filter(char => char.ctype == "warrior")[0];
+        if (can_use("darkblessing") &&
+            character.level >= G.skills.darkblessing.level) {
+            parent.use_skill("darkblessing", warrior);
+        }
+        if (can_use("partyheal")) {
+            let hurtList = partyList.filter(char => char.max_hp - char.hp > partyheal_thresh);
+            if (hurtList.length > 0) {
+                set_message("partyheal");
+                parent.use_skill("partyheal");
+                hurtList.sort(function (a, b) {
+                    return (b.max_hp - b.hp) - (a.max_hp - a.hp)
+                }
+                );
+            }
+            else {
+                set_message("All Healed");
+            }
+        }
+
+        if (null != target && !is_in_range(target)) {
+            move(
+                character.x + (target.x - character.x) / 2,
+                character.y + (target.y - character.y) / 2
+            );
+            // Walk half the distance
+        }
+        else if (can_attack(target)) {
+            attack(target);
+        }
+
+
     }
 }, 1000 / 4); // Loops every 1/4 seconds.
 
