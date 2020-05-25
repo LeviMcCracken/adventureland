@@ -72,3 +72,8 @@ function getPartyMembers() {
         is_character(char) && !char.rip &&
         char.party && char.party === character.party);
 }
+
+function getMonsters() {
+    return Object.values(parent.entities).filter(e =>
+        is_monster(e));
+}
