@@ -51,16 +51,16 @@ function getEngagedTarget() {
     if (target) set_message("Tgt: Host");
 }
 
-function getLeadersTarget() {
-    var leader = get_player(character.party);
-    set_message(character.party);
+function getLeadersTarget(c) {
+    var leader = get_player(c.party);
+    set_message(c.party);
     return get_target_of(leader);
 }
 
-function acquireTarget() {
+function acquireTarget(c) {
     let ret = get_targeted_monster();
     if (!ret) {
-        ret = getLeadersTarget();
+        ret = getLeadersTarget(c);
     }
     if (!ret) {
         ret = getPriorityTarget();

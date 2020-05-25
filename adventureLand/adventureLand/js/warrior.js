@@ -34,7 +34,7 @@ setInterval(function () {
             return;
         }
 
-        target = acquireTarget();
+        target = acquireTarget(character);
         set_message(target);
         if (null != target) {
             if (character.hp > character.max_hp / 2) {
