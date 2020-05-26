@@ -148,6 +148,14 @@ function party() {
     }
 }
 
+function invite_party() {
+
+}
+
+function accept_party() {
+
+}
+
 character.on("cm", function (data) {
     if (in_party(data.name)){
         game_log("cm:" + data.name + ":" + data.message);
