@@ -140,7 +140,7 @@ function get_pots() {
     smart_move({ to: "potions", return: true }, function () { setBuying(); });
 }
 
-function party() {
+function start_party() {
     if (character.name == leader) {
         invite_party();
     } else {

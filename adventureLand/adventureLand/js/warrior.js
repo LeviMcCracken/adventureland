@@ -10,7 +10,7 @@ var pots = [G.items.mpot0, G.items.hpot1];
 
 setInterval(function () {
 
-    party();
+    start_party();
 
     if (buying) {
         buying = buy_potions();
