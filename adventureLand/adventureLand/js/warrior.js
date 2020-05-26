@@ -32,6 +32,10 @@ setInterval(function () {
             }
         }
 
+        if (null != target) {
+            set_message(target.name);
+        }
+
         if (null != target && !is_in_range(target)) {
             move(
                 character.x + (target.x - character.x) / 2,
