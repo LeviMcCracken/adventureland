@@ -4,3 +4,4 @@ var gold_min_thresh = 10000;
 var pots_at_a_time = 100;
 var min_pot_thresh = 20;
 var partyheal_thresh = 400;
+var leader = "epyonite";

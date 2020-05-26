@@ -71,6 +71,7 @@ function getLeadersTarget(c) {
     if (null != t){
         set_message(c.party + ":" + t.name);
     }
+    return t;
 }
 
 function acquireTarget(c) {
@@ -140,6 +141,14 @@ function in_party(name) {
 function get_pots() {
     set_message("Traveling");
     smart_move({ to: "potions", return: true }, function () { setBuying(); });
+}
+
+function party() {
+    if (character.name == leader) {
+        invite_party();
+    } else {
+        accept_party();
+    }
 }
 
 character.on("cm", function (data) {
