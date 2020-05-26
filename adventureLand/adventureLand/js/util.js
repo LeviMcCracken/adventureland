@@ -149,7 +149,9 @@ function party() {
 }
 
 function invite_party() {
-
+    for (member in party){
+        send_party_invite(party[member], true);
+    }
 }
 
 function accept_party() {
