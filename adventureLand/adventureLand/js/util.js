@@ -150,7 +150,7 @@ function start_party() {
 
 function invite_party() {
     for (member in party) {
-        consol.log("Inviting:" + party[member]);
+        console.log("Inviting:" + party[member]);
         send_party_invite(party[member], true);
     }
 }
