@@ -8,6 +8,7 @@ var targetFirstList = priorityTargets.concat(rareMobs);
 var buying = false;
 var pots = [G.items.mpot0, G.items.hpot1];
 var aggroCircle;
+var my_target;
 
 setInterval(function () {
 
@@ -26,7 +27,7 @@ setInterval(function () {
             lets_go();
         }
 
-        target = acquireTarget(character);
+        my_target = target = acquireTarget(character);
         if (null != target && can_use("taunt")) {
             if (character.hp > character.max_hp / 2) {
                 parent.use_skill("taunt", target);
@@ -47,8 +48,8 @@ function on_draw() {
     if (null != aggroCircle){
         aggroCircle.destroy();
     }
-    if (null != target) {
-        set_message(target.name);
-        aggroCircle = draw_circle(target.x, target.y, target.range)
+    if (null != my_target) {
+        set_message(my_target.name);
+        aggroCircle = draw_circle(my_target.x, my_target.y, my_target.range)
     }
 }
