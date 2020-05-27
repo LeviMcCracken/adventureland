@@ -45,9 +45,7 @@ setInterval(function () {
 }, 1000 / 4); // Loops every 1/4 seconds.
 
 function on_draw() {
-    if (null != aggroCircle){
-        aggroCircle.destroy();
-    }
+    clear_drawings();
     if (null != my_target) {
         set_message(my_target.name);
         aggroCircle = draw_circle(my_target.x, my_target.y, my_target.range)
