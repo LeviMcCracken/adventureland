@@ -6,4 +6,4 @@ var min_pot_thresh = 20;
 var partyheal_thresh = 400;
 var leader = "epyonite";
 var party = ["Kracken", "KrackenHeals"];
-var alwaysKite = true;
+var alwaysKite = false;
