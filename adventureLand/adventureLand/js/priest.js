@@ -37,7 +37,9 @@ setInterval(function () {
             parent.use_skill("darkblessing", warrior);
         }
         if (can_use("curse")) {
-            parent.use_skill("curse", target);
+            if (null != target){
+                parent.use_skill("curse", target);
+            }
         }
         if (can_use("partyheal")) {
             let hurtList = partyList.filter(char => char.max_hp - char.hp > partyheal_thresh);
