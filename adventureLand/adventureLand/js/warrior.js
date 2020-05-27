@@ -33,15 +33,17 @@ setInterval(function () {
             }
         }
 
-        parent.map.removeChild(aggroCircle);
-        clear_drawings();
-        if (null != target) {
-            set_message(target.name);
-            aggroCircle = draw_circle(target.x, target.y, target.range)
-        }
-
         if (can_attack(target)) {
             attack(target);
         }
     }
 }, 1000 / 4); // Loops every 1/4 seconds.
+
+function on_draw() {
+    parent.map.removeChild(aggroCircle);
+    clear_drawings();
+    if (null != target) {
+        set_message(target.name);
+        aggroCircle = draw_circle(target.x, target.y, target.range)
+    }
+}
