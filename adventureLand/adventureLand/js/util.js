@@ -160,10 +160,11 @@ function on_party_invite(name) {
     }
 }
 
-function kite(t){
+function kite(t) {
+    let angle = Math.floor(Math.random() * 360);
     move(
-        character.x + (target.x - character.x) / 2,
-        character.y + (target.y - character.y) / 2
+        character.x + distance * cos(angle),
+        character.y + distance * sin(angle)
     );
 }
 
