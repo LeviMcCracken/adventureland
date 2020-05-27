@@ -47,7 +47,6 @@ function on_draw() {
     if (null != aggroCircle){
         aggroCircle.destroy();
     }
-    clear_drawings();
     if (null != target) {
         set_message(target.name);
         aggroCircle = draw_circle(target.x, target.y, target.range)
