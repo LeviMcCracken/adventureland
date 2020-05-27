@@ -34,16 +34,10 @@ setInterval(function () {
 
         if (null != target) {
             set_message(target.name);
+            draw_circle(target.x, target.y, target.range)
         }
 
-        if (null != target && !is_in_range(target)) {
-            move(
-                character.x + (target.x - character.x) / 2,
-                character.y + (target.y - character.y) / 2
-            );
-            // Walk half the distance
-        }
-        else if (can_attack(target)) {
+        if (can_attack(target)) {
             attack(target);
         }
     }
