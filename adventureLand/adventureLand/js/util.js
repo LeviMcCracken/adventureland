@@ -143,20 +143,23 @@ function get_pots() {
 function start_party() {
     if (character.name == leader) {
         invite_party();
-    } else {
-        accept_party();
     }
 }
 
 function invite_party() {
     for (member in party) {
         console.log("Inviting:" + party[member]);
-        send_party_invite(party[member], true);
+        let inParty = getPartyMembers().filter(char => char.name == party[member]).length;
+        if (inParty == 0){
+            send_party_invite(party[member], 0);
+        }
     }
 }
 
-function accept_party() {
-
+function on_party_invite(name) {
+    if (!character.party && name == leader) {
+        accept_party_invite(name);
+    }
 }
 
 character.on("cm", function (data) {
