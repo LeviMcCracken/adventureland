@@ -27,6 +27,20 @@ setInterval(function () {
             lets_go();
         }
 
+        if ((alwaysKite || character.hp < character.max_hp / 2) && null != target) {
+            kite(target);
+        } else if (null != target && !is_in_range(target)) {
+            move(
+                character.x + (target.x - character.x) / 2,
+                character.y + (target.y - character.y) / 2
+            );
+            // Walk half the distance
+        }
+
+        if (can_attack(target)) {
+            attack(target);
+        }
+
     }
 }, 1000 / 4); // Loops every 1/4 seconds.
 
@@ -38,20 +52,6 @@ function on_draw() {
         if (character.hp > character.max_hp / 2) {
             parent.use_skill("taunt", target);
         }
-    }
-
-    if ((alwaysKite || character.hp < character.max_hp / 2) && null != target) {
-        kite(target);
-    } else if (null != target && !is_in_range(target)) {
-        move(
-            character.x + (target.x - character.x) / 2,
-            character.y + (target.y - character.y) / 2
-        );
-        // Walk half the distance
-    }
-
-    if (can_attack(target)) {
-        attack(target);
     }
 
     if (null != target) {
