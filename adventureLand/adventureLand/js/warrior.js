@@ -33,7 +33,7 @@ setInterval(function () {
             }
         }
 
-        if (character.hp < character.max_hp && null != target) {
+        if ((alwaysKite || character.hp < character.max_hp) && null != target) {
             kite(target);
         }
 
