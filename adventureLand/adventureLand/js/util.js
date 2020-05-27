@@ -148,9 +148,7 @@ function start_party() {
 
 function invite_party() {
     for (member in party) {
-        console.log("Inviting:" + party[member]);
-        let inParty = getPartyMembers().filter(char => char.name == party[member]).length;
-        if (inParty == 0){
+        if (!parent.party_list.includes(party[member])){
             send_party_invite(party[member]);
         }
     }
