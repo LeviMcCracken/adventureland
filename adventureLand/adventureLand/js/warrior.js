@@ -7,6 +7,7 @@ var priorityTargets = [];
 var targetFirstList = priorityTargets.concat(rareMobs);
 var buying = false;
 var pots = [G.items.mpot0, G.items.hpot1];
+var aggroCircle;
 
 setInterval(function () {
 
@@ -32,10 +33,11 @@ setInterval(function () {
             }
         }
 
+        patent.map.removeChild(aggroCircle);
         clear_drawings();
         if (null != target) {
             set_message(target.name);
-            draw_circle(target.x, target.y, target.range)
+            aggroCircle = draw_circle(target.x, target.y, target.range)
         }
 
         if (can_attack(target)) {
