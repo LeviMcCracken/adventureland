@@ -163,8 +163,8 @@ function on_party_invite(name) {
 function kite(t) {
     let angle = Math.floor(Math.random() * 360);
     move(
-        character.x + distance * cos(angle),
-        character.y + distance * sin(angle)
+        character.x + t.range * cos(angle),
+        character.y + t.range * sin(angle)
     );
 }
 
