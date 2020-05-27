@@ -151,7 +151,7 @@ function invite_party() {
         console.log("Inviting:" + party[member]);
         let inParty = getPartyMembers().filter(char => char.name == party[member]).length;
         if (inParty == 0){
-            send_party_invite(party[member], 0);
+            send_party_invite(party[member]);
         }
     }
 }
