@@ -32,6 +32,7 @@ setInterval(function () {
             }
         }
 
+        clear_drawings();
         if (null != target) {
             set_message(target.name);
             draw_circle(target.x, target.y, target.range)
