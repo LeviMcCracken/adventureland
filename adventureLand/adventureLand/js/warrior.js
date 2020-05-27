@@ -40,7 +40,7 @@ setInterval(function () {
 }, 1000 / 4); // Loops every 1/4 seconds.
 
 function on_draw() {
-    parent.map.removeChild(aggroCircle);
+    aggroCircle.destroy();
     clear_drawings();
     if (null != target) {
         set_message(target.name);
