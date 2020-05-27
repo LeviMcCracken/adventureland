@@ -27,27 +27,35 @@ setInterval(function () {
             lets_go();
         }
 
-        my_target = target = acquireTarget(character);
-        if (null != target && can_use("taunt")) {
-            if (character.hp > character.max_hp / 2) {
-                parent.use_skill("taunt", target);
-            }
-        }
-
-        if ((alwaysKite || character.hp < character.max_hp / 2) && null != target) {
-            kite(target);
-        }
-
-        if (can_attack(target)) {
-            attack(target);
-        }
     }
 }, 1000 / 4); // Loops every 1/4 seconds.
 
 function on_draw() {
     clear_drawings();
-    if (null != my_target) {
-        set_message(my_target.name);
-        aggroCircle = draw_circle(my_target.x, my_target.y, my_target.range)
+
+    target = acquireTarget(character);
+    if (null != target && can_use("taunt")) {
+        if (character.hp > character.max_hp / 2) {
+            parent.use_skill("taunt", target);
+        }
+    }
+
+    if ((alwaysKite || character.hp < character.max_hp / 2) && null != target) {
+        kite(target);
+    } else if (null != target && !is_in_range(target)) {
+        move(
+            character.x + (target.x - character.x) / 2,
+            character.y + (target.y - character.y) / 2
+        );
+        // Walk half the distance
+    }
+
+    if (can_attack(target)) {
+        attack(target);
+    }
+
+    if (null != target) {
+        set_message(target.name);
+        aggroCircle = draw_circle(target.x, target.y, target.range)
     }
 }

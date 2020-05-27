@@ -27,19 +27,21 @@ setInterval(function () {
         var target = get_targeted_monster();
         let targetingMe = getMonsters().filter(m => m.target == character.name);
         set_message("Defending:" + targetingMe.length);
-        if (targetingMe.length > 0) {
-            target = targetingMe[0];
-        } else if (null == target && character.max_hp - character.hp > pots[1].gives[1] + 100) {
-            set_message("Healing Break");
-        } else {
-            target = get_nearest_monster({ min_xp: 100, max_att: max_att_p });
-            if (target) {
-                change_target(target)
+	if(null == target){
+            if (targetingMe.length > 0) {
+                target = targetingMe[0];
+            } else if (null == target && character.max_hp - character.hp > pots[1].gives[1] + 100) {
+                set_message("Healing Break");
             } else {
-                set_message("No Monsters");
-                return;
+                target = get_nearest_monster({ min_xp: 100, max_att: max_att_p });
+                if (null != target) {
+                    change_target(target)
+                } else {
+                    set_message("No Monsters");
+                    return;
+            	}
             }
-        }
+	}
 
         let partyList = getPartyMembers();
         let warrior = partyList.filter(char => char.ctype == "warrior")[0];
