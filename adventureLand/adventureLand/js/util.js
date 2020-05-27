@@ -160,6 +160,13 @@ function on_party_invite(name) {
     }
 }
 
+function kite(t){
+    move(
+        character.x - (target.x - character.x) / 2,
+        character.y - (target.y - character.y) / 2
+    );
+}
+
 character.on("cm", function (data) {
     if (in_party(data.name)){
         game_log("cm:" + data.name + ":" + data.message);

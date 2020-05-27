@@ -33,6 +33,10 @@ setInterval(function () {
             }
         }
 
+        if (character.hp < character.max_hp && null != target) {
+            kite(target);
+        }
+
         if (can_attack(target)) {
             attack(target);
         }
