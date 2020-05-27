@@ -45,7 +45,7 @@ setInterval(function () {
 
 function on_draw() {
     if (null != aggroCircle){
-        parent.removeChild(aggroCircle);
+        aggroCircle.destroy();
     }
     clear_drawings();
     if (null != target) {
