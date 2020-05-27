@@ -160,10 +160,11 @@ function on_party_invite(name) {
     }
 }
 
+var angle = 0;
 function kite(t) {
-    let angle = Math.random() * 2 * Math.PI;
-    let x = t.x + t.range * Math.cos(angle);
-    let y = t.y + t.range * Math.sin(angle);
+    angle =+ Math.random() * .1;
+    let x = t.x + ((t.range + 2) * Math.cos(angle));
+    let y = t.y + ((t.range + 2) * Math.sin(angle));
     move(x, y);
 }
 
