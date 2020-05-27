@@ -33,7 +33,7 @@ setInterval(function () {
             }
         }
 
-        patent.map.removeChild(aggroCircle);
+        parent.map.removeChild(aggroCircle);
         clear_drawings();
         if (null != target) {
             set_message(target.name);
