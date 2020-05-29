@@ -92,6 +92,14 @@ function getPartyMembers() {
         char.party && char.party === character.party);
 }
 
+function getPartyMonsterList() {
+    let list = {};
+    for (member in party) {
+        list.add(get_entity(party[member]).s.monsterhunt);
+    }
+    return list;
+}
+
 function getMonsters() {
     return Object.values(parent.entities).filter(e =>
         is_monster(e));
@@ -201,8 +209,6 @@ function get_monster_hunt() {
         gettingMonsterHunt = true;
         smart_move("monsterhunter", function () {
             start_monster_hunt_quest();
-            //TODO evaluate and go
-            smart_move(farming);
             gettingMonsterHunt = false;
         });
     }   

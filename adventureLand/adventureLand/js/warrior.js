@@ -27,10 +27,6 @@ setInterval(function () {
             return;
         }
 
-        if (!is_on_monster_hunt()){
-            get_monster_hunt();
-        }
-
         if (!attack_mode || is_moving(character)) return;
         
         if (isNeedMorePots() && character.gold >= gold_min_thresh + gold_min_thresh) {
