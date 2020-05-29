@@ -5,6 +5,7 @@ var attack_mode = true
 
 var buying = false;
 var pots = [G.items.mpot1, G.items.hpot1];
+var chosenMonsterHunt = false;
 
 setInterval(function () {
 
@@ -25,6 +26,13 @@ setInterval(function () {
 
         if (!is_on_monster_hunt()) {
             send_get_monster_hunt();
+        }
+
+        if (is_on_monster_hunt() && party_is_on_monster_hunt() && !chosenMonsterHunt) {
+            chosenMonsterHunt = true;
+            let monsterHuntList = getPartyMonsterList();
+            //TODO evaluate and go
+            smart_move(farming);
         }
 
         if (!attack_mode || is_moving(character)) return;
