@@ -29,6 +29,10 @@ setInterval(function () {
             lets_go();
             return;
         }
+
+        if (!is_on_monster_hunt()) {
+            send_get_monster_hunt();
+        }
         
         var target = get_targeted_monster();
         let targetingMe = getMonsters().filter(m => m.target == character.name);
