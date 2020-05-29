@@ -175,11 +175,42 @@ function send_range(i,j){
     }
 }
 
+function is_on_monster_hunt() {
+    return Boolean(character && character.s && character.s.monsterhunt);
+}
+
+function send_get_monster_hunt() {
+    get_monster_hunt();
+    let party = getPartyMembers();
+    for (member in party) {
+        send_cm(party[member].name, "mHunt");
+    }
+}
+
+function start_monster_hunt_quest() {
+    parent.socket.emit('monsterhunt');
+}
+
+function complete_monster_hunt_quest() {
+    parent.socket.emit('monsterhunt');
+}
+
+function get_monster_hunt() {
+    smart_move("monsterhunter", function () {
+        start_monster_hunt_quest();
+        //TODO evaluate and go
+        smart_move(farming);
+    });
+}
+
 character.on("cm", function (data) {
     if (in_party(data.name)){
         game_log("cm:" + data.name + ":" + data.message);
-        if (data.message == "Need Pots"){
+        if (data.message == "Need Pots") {
             get_pots();
+        }
+        if (data.message == "mHunt") {
+            get_monster_hunt();
         }
     }
 });
