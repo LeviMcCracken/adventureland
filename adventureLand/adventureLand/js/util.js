@@ -175,8 +175,9 @@ function send_range(i,j){
     }
 }
 
+var gettingMonsterHunt = false;
 function is_on_monster_hunt() {
-    return Boolean(character && character.s && character.s.monsterhunt);
+    return Boolean(character && character.s && character.s.monsterhunt && !gettingMonsterHunt);
 }
 
 function send_get_monster_hunt() {
@@ -196,10 +197,12 @@ function complete_monster_hunt_quest() {
 }
 
 function get_monster_hunt() {
+    gettingMonsterHunt = true;
     smart_move("monsterhunter", function () {
         start_monster_hunt_quest();
         //TODO evaluate and go
         smart_move(farming);
+        gettingMonsterHunt = false;
     });
 }
 
