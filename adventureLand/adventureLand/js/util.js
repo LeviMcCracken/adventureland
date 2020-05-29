@@ -95,7 +95,7 @@ function getPartyMembers() {
 function getPartyMonsterList() {
     let list = {};
     for (member in party) {
-        list.add(get_entity(party[member]).s.monsterhunt);
+        list.push(get_entity(party[member]).s.monsterhunt);
     }
     return list;
 }
