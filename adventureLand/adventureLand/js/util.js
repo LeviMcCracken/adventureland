@@ -188,6 +188,10 @@ function is_on_monster_hunt() {
     return Boolean(character && character.s && character.s.monsterhunt);
 }
 
+function party_is_on_monster_hunt(){
+    return getPartyMonsterList().length == 2;
+}
+
 function send_get_monster_hunt() {
     get_monster_hunt();
     let party = getPartyMembers();
