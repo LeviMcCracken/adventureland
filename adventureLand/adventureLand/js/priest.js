@@ -20,7 +20,13 @@ setInterval(function () {
 
         loot();
 
-        if (!attack_mode || character.rip || is_moving(character)) return;
+        if (character.rip) {
+            respawn();
+            smart_move(farming);
+            return;
+        }
+
+        if (!attack_mode || is_moving(character)) return;
         
         if (isNeedMorePots() && character.gold >= gold_min_thresh + gold_min_thresh) {
             lets_go();

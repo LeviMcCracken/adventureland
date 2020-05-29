@@ -7,3 +7,4 @@ var partyheal_thresh = 400;
 var leader = "epyonite";
 var party = ["Kracken", "KrackenHeals"];
 var alwaysKite = false;
+var farming = "iceroamer";

@@ -17,7 +17,13 @@ setInterval(function () {
 
         loot();
 
-        if (!attack_mode || character.rip || is_moving(character)) return;
+        if (character.rip) {
+            respawn();
+            smart_move(farming);
+            return;
+        }
+
+        if (!attack_mode || is_moving(character)) return;
         
         if (isNeedMorePots() && character.gold >= gold_min_thresh + gold_min_thresh) {
             lets_go();
@@ -27,7 +33,7 @@ setInterval(function () {
         var target = get_targeted_monster();
         let targetingMe = getMonsters().filter(m => m.target == character.name);
         set_message("Defending:" + targetingMe.length);
-	if(null == target){
+	    if(null == target){
             if (targetingMe.length > 0) {
                 target = targetingMe[0];
             } else if (null == target && character.max_hp - character.hp > pots[1].gives[1] + 100) {
@@ -41,7 +47,7 @@ setInterval(function () {
                     return;
             	}
             }
-	}
+	    }
 
         let partyList = getPartyMembers();
         let warrior = partyList.filter(char => char.ctype == "warrior")[0];

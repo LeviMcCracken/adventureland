@@ -168,6 +168,7 @@ function kite(t) {
     console.log("x:" + x + "y:" + y + "angle:" + angle);
     move(x, y);
 }
+
 function send_range(i,j){
     for (i; i < j; i++){
         send_item("KrackenMerch",i, 1);
