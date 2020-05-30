@@ -39,13 +39,14 @@ setInterval(function () {
                         chosen = warMonster;
                         break;
                     } else if (monsterhunts[monster] == healMonster) {
-                        chosen = warMonster;
+                        chosen = healMonster;
                         break;
                     } else if (monsterhunts[monster] == character.s.monsterhunt.id) {
                         chosen = character.s.monsterhunt.id;
                         break;
                     }                
                 }
+                console.log(warMonster + ":" + healMonster + ":" + character.s.monsterhunt.id + ":" + monsterhunts[monster] );
                 set("chosenMonsterHunt", chosen);
                 //TODO evaluate and go
                 smart_move(chosen);
