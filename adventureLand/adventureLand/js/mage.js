@@ -23,7 +23,7 @@ setInterval(function () {
             return;
         }
 
-        if (!is_on_monster_hunt()) {
+        if (!is_on_monster_hunt() && null == get("Kracken") && null == get("KrackenHeals")) {
             send_get_monster_hunt();
         }
 
