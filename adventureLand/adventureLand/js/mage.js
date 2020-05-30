@@ -94,10 +94,11 @@ setInterval(function () {
 
         let partyList = getPartyMembers();
         let warrior = partyList.filter(char => char.ctype == "warrior")[0];
+        let priest = partyList.filter(char => char.ctype == "priest")[0];
         if (can_use("energize") &&
             character.level >= G.skills.energize.level &&
-            null != warrior) {
-            parent.use_skill("energize", warrior);
+            null != priest) {
+            parent.use_skill("energize", priest);
         }
         if (can_use("reflection") &&
             character.level >= G.skills.reflection.level &&
