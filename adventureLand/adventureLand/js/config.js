@@ -9,5 +9,5 @@ var party = ["Kracken", "KrackenHeals"];
 var alwaysKite = false;
 var farming = "iceroamer";
 
-var monsterhunts = ["iceroamer", "goo", "crab", "bee", "minimush", "frog", "squigtoad", "osnake", "snake",
-                    "rat", "armadillo"];
+var monsterhunts = ["iceroamer", "bat", "goo", "crab", "bee", "minimush", "frog", "squigtoad",
+                    "osnake", "snake", "rat", "armadillo"];
