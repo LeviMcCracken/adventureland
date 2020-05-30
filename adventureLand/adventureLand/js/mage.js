@@ -28,7 +28,7 @@ setInterval(function () {
             send_get_monster_hunt();
         }
 
-        if (is_on_monster_hunt() && party_is_on_monster_hunt() && !chosenMonsterHunt) {
+        if (is_on_monster_hunt() && !chosenMonsterHunt) {
             chosenMonsterHunt = true;
             let monsterHuntList = getPartyMonsterList();
             //TODO evaluate and go
