@@ -26,12 +26,16 @@ setInterval(function () {
             return;
         }
 
-        if (character && character.s && character.s.monsterhunt) {
-            set("KrackenHeals", character.s.monsterhunt.id);
-            if (get("hunting") == character.s.monsterhunt.id) {
-                if (character.s.monsterhunt.c == 0) {
-                    send_turn_in_monster_hunt();
+        if (character && character.s) {
+            if (character.s.monsterhunt) {
+                set("KrackenHeals", character.s.monsterhunt.id);
+                if (get("hunting") == character.s.monsterhunt.id) {
+                    if (character.s.monsterhunt.c == 0) {
+                        send_turn_in_monster_hunt();
+                    }
                 }
+            } else {
+                set("KrackenHeals", null);
             }
         }
 
