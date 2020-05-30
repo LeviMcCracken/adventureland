@@ -25,10 +25,8 @@ setInterval(function () {
             smart_move(farming);
             return;
         }
-
-        if (!monsterhuntSet && character && character.s && character.s.monsterhunt) {
-            set("KrackenHeals", character.s.monsterhunt.id);
-        }
+        
+        set("KrackenHeals", character.s.monsterhunt.id);
 
         if (!attack_mode || is_moving(character)) return;
         

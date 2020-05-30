@@ -5,7 +5,6 @@ var attack_mode = true
 
 var buying = false;
 var pots = [G.items.mpot1, G.items.hpot1];
-var chosenMonsterHunt = false;
 
 setInterval(function () {
 
@@ -28,12 +27,28 @@ setInterval(function () {
             send_get_monster_hunt();
         }
 
-        if (is_on_monster_hunt() && !chosenMonsterHunt) {
-            if (get("Kracken") != null && get("KrackenHeals") != null) {
+        let chosenMonsterHunt = get("chosenMonsterHunt");
 
-                chosenMonsterHunt = true;
+        if (null == chosenMonsterHunt) {
+            let warMonster = get("Kracken");
+            let healMonster = get("KrackenHeals");
+            if (warMonster != null && healMonster != null) {
+                let chosen = farm;
+                for (monster in monsterhunts){
+                    if (monsterhunts[monster] == warMonster) {
+                        chosen = warMonster;
+                        break;
+                    } else if (monsterhunts[monster] == healMonster) {
+                        chosen = warMonster;
+                        break;
+                    } else if (monsterhunts[monster] == character.s.monsterhunt.id) {
+                        chosen = character.s.monsterhunt.id;
+                        break;
+                    }                
+                }
+                set("chosenMonsterHunt", chosen);
                 //TODO evaluate and go
-                smart_move(farming);
+                smart_move(chosen);
             }
         }
 

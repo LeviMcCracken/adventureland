@@ -26,10 +26,8 @@ setInterval(function () {
             smart_move(farming);
             return;
         }
-
-        if (!monsterhuntSet && character && character.s && character.s.monsterhunt){
-            set("Kracken", character.s.monsterhunt.id);
-        }
+        
+        set("Kracken", character.s.monsterhunt.id);
 
         if (!attack_mode || is_moving(character)) return;
         

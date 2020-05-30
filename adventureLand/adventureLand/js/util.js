@@ -189,6 +189,7 @@ function is_on_monster_hunt() {
 }
 
 function send_get_monster_hunt() {
+    set("chosenMonsterHunt", null);
     get_monster_hunt();
     let party = getPartyMembers();
     for (member in party) {
@@ -196,14 +197,13 @@ function send_get_monster_hunt() {
     }
 }
 
-var monsterhuntSet;
 function start_monster_hunt_quest() {
     parent.socket.emit('monsterhunt');
-    monsterhuntSet = false;
 }
 
 function complete_monster_hunt_quest() {
     parent.socket.emit('monsterhunt');
+    set("chosenMonsterHunt", null);
 }
 
 function get_monster_hunt() {
