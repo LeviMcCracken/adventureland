@@ -27,6 +27,14 @@ setInterval(function () {
             send_get_monster_hunt();
         }
 
+        if (character && character.s && character.s.monsterhunt) {
+            if (get("hunting") == character.s.monsterhunt.id) {
+                if (character.s.monsterhunt.c == 0) {
+                    send_turn_in_monster_hunt();
+                }
+            }
+        }
+
         let chosenMonsterHunt = get("chosenMonsterHunt");
 
         if (null == chosenMonsterHunt) {

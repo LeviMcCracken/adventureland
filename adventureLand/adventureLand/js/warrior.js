@@ -29,6 +29,11 @@ setInterval(function () {
 
         if (character && character.s && character.s.monsterhunt){
             set("Kracken", character.s.monsterhunt.id);
+            if (get("hunting") == character.s.monsterhunt.id) {
+                if (character.s.monsterhunt.c == 0) {
+                    send_turn_in_monster_hunt();
+                }
+            }
         }
 
         if (!attack_mode || is_moving(character)) return;

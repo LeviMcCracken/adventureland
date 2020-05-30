@@ -195,10 +195,19 @@ function send_get_monster_hunt() {
     for (member in party) {
         send_cm(party[member].name, "mHunt");
     }
+} 
+
+function send_turn_in_monster_hunt() {
+    turn_in_monster_hunt();
+    let party = getPartyMembers();
+    for (member in party) {
+        send_cm(party[member].name, "mHuntDone");
+    }
 }
 
 function send_goto(chosen) {
     let party = getPartyMembers();
+    set("hunting", chosen);
     for (member in party) {
         send_cm(party[member].name, "mGo:" + chosen);
     }
@@ -214,13 +223,19 @@ function complete_monster_hunt_quest() {
 }
 
 function get_monster_hunt() {
-    if (!gettingMonsterHunt){
+    if (!gettingMonsterHunt) {
         gettingMonsterHunt = true;
         smart_move("monsterhunter", function () {
             start_monster_hunt_quest();
             gettingMonsterHunt = false;
         });
-    }   
+    }
+}
+
+function turn_in_monster_hunt() {
+    smart_move("monsterhunter", function () {
+        complete_monster_hunt_quest();
+    });
 }
 
 character.on("cm", function (data) {
@@ -232,8 +247,11 @@ character.on("cm", function (data) {
         if (data.message == "mHunt") {
             get_monster_hunt();
         }
+        if (data.message == "mHuntDone") {
+            turn_in_monster_hunt();
+        }
         if (data.message.includes("mGo:")) {
-            smart_move(data.message.substring(4));
+            smart_move(get("hunting"));
         }
     }
 });
