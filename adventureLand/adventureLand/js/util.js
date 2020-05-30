@@ -232,7 +232,7 @@ character.on("cm", function (data) {
         if (data.message == "mHunt") {
             get_monster_hunt();
         }
-        if (data.message.contains("mGo:")) {
+        if (data.message.includes("mGo:")) {
             smart_move(data.message.substring(4));
         }
     }
