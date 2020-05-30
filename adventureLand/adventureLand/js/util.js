@@ -197,6 +197,13 @@ function send_get_monster_hunt() {
     }
 }
 
+function send_goto(chosen) {
+    let party = getPartyMembers();
+    for (member in party) {
+        send_cm(party[member].name, "mGo:" + chosen);
+    }
+}
+
 function start_monster_hunt_quest() {
     parent.socket.emit('monsterhunt');
 }
@@ -224,6 +231,9 @@ character.on("cm", function (data) {
         }
         if (data.message == "mHunt") {
             get_monster_hunt();
+        }
+        if (data.message.contains("mGo:")) {
+            smart_move(data.message.substring(4));
         }
     }
 });

@@ -49,6 +49,7 @@ setInterval(function () {
                 set("chosenMonsterHunt", chosen);
                 //TODO evaluate and go
                 smart_move(chosen);
+                send_goto(chosen);
             }
         }
 
