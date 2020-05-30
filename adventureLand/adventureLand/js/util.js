@@ -196,6 +196,7 @@ function send_get_monster_hunt() {
     }
 }
 
+var monsterhuntSet;
 function start_monster_hunt_quest() {
     parent.socket.emit('monsterhunt');
     monsterhuntSet = false;
