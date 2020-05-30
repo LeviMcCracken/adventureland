@@ -29,10 +29,12 @@ setInterval(function () {
         }
 
         if (is_on_monster_hunt() && !chosenMonsterHunt) {
-            chosenMonsterHunt = true;
-            let monsterHuntList = getPartyMonsterList();
-            //TODO evaluate and go
-            smart_move(farming);
+            if (get("Kracken") != null && get("KrackenHeals") != null) {
+
+                chosenMonsterHunt = true;
+                //TODO evaluate and go
+                smart_move(farming);
+            }
         }
 
         if (!attack_mode || is_moving(character)) return;
