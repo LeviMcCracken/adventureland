@@ -27,7 +27,7 @@ setInterval(function () {
         }
 
         if (character && character.s) {
-            if (character.s.monsterhunt) {
+            if (character.s.monsterhunt && character.s.monsterhunt.c != 0) {
                 set("KrackenHeals", character.s.monsterhunt.id);
                 if (get("hunting") == character.s.monsterhunt.id) {
                     if (character.s.monsterhunt.c == 0) {
