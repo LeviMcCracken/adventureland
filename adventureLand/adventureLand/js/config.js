@@ -5,7 +5,7 @@ var pots_at_a_time = 100;
 var min_pot_thresh = 20;
 var partyheal_thresh = 400;
 var leader = "epyonite";
-var party = ["Kracken", "KrackenHeals"];
+var party = ["epyonite", "Kracken", "KrackenHeals"];
 var alwaysKite = false;
 var farming = "iceroamer";
 
