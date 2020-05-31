@@ -28,12 +28,12 @@ setInterval(function () {
             send_get_monster_hunt();
         }
 
-        if (character && character.s && character.s.monsterhunt) {
-            if (get("hunting") == character.s.monsterhunt.id) {
-                if (character.s.monsterhunt.c == 0) {
-                    send_turn_in_monster_hunt();
-                }
-            }
+        if (character.s.monsterhunt && character.s.monsterhunt.c != 0) {
+            set("epyonite", character.s.monsterhunt.id);
+        } else if (character.s.monsterhunt && character.s.monsterhunt.c == 0 &&
+            null != get("epyonite")) {
+            send_turn_in_monster_hunt();
+            set("epyonite", null);
         }
         
 

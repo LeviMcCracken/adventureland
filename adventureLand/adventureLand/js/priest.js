@@ -30,13 +30,12 @@ setInterval(function () {
             leave_party();
         }
 
-        if (character && character.s) {
-            if (character.s.monsterhunt && character.s.monsterhunt.c != 0) {
-                set("KrackenHeals", character.s.monsterhunt.id);
-            } else if (character.s.monsterhunt && character.s.monsterhunt.c == 0) {
-                send_turn_in_monster_hunt();
-                set("KrackenHeals", null);
-            }
+        if (character.s.monsterhunt && character.s.monsterhunt.c != 0) {
+            set("KrackenHeals", character.s.monsterhunt.id);
+        } else if (character.s.monsterhunt && character.s.monsterhunt.c == 0 &&
+            null != get("KrackenHeals")) {
+            send_turn_in_monster_hunt();
+            set("KrackenHeals", null);
         }
 
         if (!attack_mode || is_moving(character)) return;
