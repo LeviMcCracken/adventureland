@@ -1,12 +1,20 @@
 // Gold meter stolen from https://github.com/Spadar/AdventureLand/blob/master/GUI/GoldMeter.js
 var startTime = new Date();
+var elapsed = {};
 var sumGold = 0;
 var meters = [];
+var currentMob;
 
 setInterval(function () {
-    if (!meters.includes(get("hunting"))) {
-        meters.push(get("hunting"));
-        init_goldmeter(get("hunting"));
+    let mob = get("hunting");
+    if (currentMob != mob){
+        if (!meters.includes(mob)) {
+            meters.push(mob);
+            elapsed[mob] = 0;
+            init_goldmeter(mob);
+        }
+        startTime = new Date();
+        currentMob = mob;
     }
     update_goldmeter();
 }, 100);
@@ -44,11 +52,13 @@ function init_goldmeter(mob) {
 function updateGoldTimerList() {
     let $ = parent.$;
 
+    let mob = get("hunting");
+
     var gold = getGold();
 
-    var goldString = "<div>" + gold + " Gold/Hr " + get("hunting") + "</div>";
+    var goldString = "<div>" + gold + " Gold/Hr " + mob + "</div>";
 
-    $('#' + "goldtimercontent" + get("hunting")).html(goldString).css({
+    $('#' + "goldtimercontent" + mob).html(goldString).css({
         background: 'black',
         border: 'solid gray',
         borderWidth: '5px 5px',
@@ -65,10 +75,10 @@ function update_goldmeter() {
     updateGoldTimerList();
 }
 
-function getGold() {
-    var elapsed = new Date() - startTime;
+function getGold(mob) {
+    elapsed[mob] = elapsed[mob] + (new Date() - startTime);
 
-    var goldPerSecond = parseFloat(Math.round((sumGold / (elapsed / 1000)) * 100) / 100);
+    var goldPerSecond = parseFloat(Math.round((sumGold / (elapsed[mob] / 1000)) * 100) / 100);
 
     return parseInt(goldPerSecond * 60 * 60).toLocaleString('en');
 }
