@@ -65,9 +65,6 @@ function update_goldmeter() {
     updateGoldTimerList();
 }
 
-
-init_goldmeter()
-
 function getGold() {
     var elapsed = new Date() - startTime;
 
