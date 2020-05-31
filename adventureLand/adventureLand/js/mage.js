@@ -35,12 +35,12 @@ setInterval(function () {
                 }
             }
         }
+        
 
-        let chosenMonsterHunt = get("chosenMonsterHunt");
-
-        if (null == chosenMonsterHunt) {
-            let warMonster = get("Kracken");
-            let healMonster = get("KrackenHeals");
+        let warMonster = get("Kracken");
+        let healMonster = get("KrackenHeals");
+        let hunting = get("hunting");
+        if (hunting != warMonster && hunting != healMonster && hunting != character.s.monsterhunt.id ) {
             if (warMonster != null && healMonster != null) {
                 let chosen = farming;
                 for (monster in monsterhunts){
@@ -56,10 +56,11 @@ setInterval(function () {
                     }                
                 }
                 console.log(warMonster + ":" + healMonster + ":" + character.s.monsterhunt.id + ":" + monsterhunts[monster] );
-                set("chosenMonsterHunt", chosen);
                 //TODO evaluate and go
-                smart_move(chosen);
-                send_goto(chosen);
+                if (chosen != get("hunting")){
+                    smart_move(chosen);
+                    send_goto(chosen);
+                }
             }
         }
 
