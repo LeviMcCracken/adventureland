@@ -1,5 +1,6 @@
 add_lib("https://levimccracken.github.io/adventureland/adventureLand/adventureLand/js/config.js");
 add_lib("https://levimccracken.github.io/adventureland/adventureLand/adventureLand/js/util.js");
+add_lib("https://levimccracken.github.io/adventureland/adventureLand/adventureLand/js/goldMeter.js");
 
 var attack_mode = true
 
