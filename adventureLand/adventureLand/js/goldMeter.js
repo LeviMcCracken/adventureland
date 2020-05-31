@@ -4,7 +4,7 @@ var sumGold = 0;
 var meters = [];
 
 setInterval(function () {
-    if (!meters.contains(get("hunting"))) {
+    if (!meters.includes(get("hunting"))) {
         meters.push(get("hunting"));
         init_goldmeter(get("hunting"));
     }
