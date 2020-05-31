@@ -192,7 +192,6 @@ function is_on_monster_hunt() {
 }
 
 function send_get_monster_hunt() {
-    set("chosenMonsterHunt", null);
     get_monster_hunt();
     let party = getPartyMembers();
     for (member in party) {
