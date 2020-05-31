@@ -33,7 +33,6 @@ setInterval(function () {
             } else if (character.s.monsterhunt && character.s.monsterhunt.c == 0) {
                 send_turn_in_monster_hunt();
                 set("Kracken", null);
-                set("chosenMHunt", false);
             }
         }
 

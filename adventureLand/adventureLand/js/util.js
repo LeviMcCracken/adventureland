@@ -203,6 +203,7 @@ function send_turn_in_monster_hunt() {
     for (member in party) {
         send_cm(party[member], "mHuntDone");
     }
+    set("chosenMHunt", false);
 }
 
 function send_goto(chosen) {
