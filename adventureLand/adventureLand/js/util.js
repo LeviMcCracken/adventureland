@@ -194,21 +194,21 @@ function is_on_monster_hunt() {
 function send_get_monster_hunt() {
     get_monster_hunt();
     for (member in party) {
-        send_cm(party[member].name, "mHunt");
+        send_cm(party[member], "mHunt");
     }
 } 
 
 function send_turn_in_monster_hunt() {
     turn_in_monster_hunt();
     for (member in party) {
-        send_cm(party[member].name, "mHuntDone");
+        send_cm(party[member], "mHuntDone");
     }
 }
 
 function send_goto(chosen) {
     set("hunting", chosen);
     for (member in party) {
-        send_cm(party[member].name, "mGo:" + chosen);
+        send_cm(party[member], "mGo:" + chosen);
     }
 }
 
