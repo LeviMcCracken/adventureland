@@ -39,8 +39,12 @@ setInterval(function () {
 
         let warMonster = get("Kracken");
         let healMonster = get("KrackenHeals");
+        let myMonster;
+        if (null != character.s.monsterhunt){
+            myMonster = character.s.monsterhunt.id;
+        }
         let hunting = get("hunting");
-        if (!get("chosenMHunt") && hunting != warMonster && hunting != healMonster && hunting != character.s.monsterhunt.id ) {
+        if (!get("chosenMHunt") && hunting != warMonster && hunting != healMonster && (hunting != myMonster )) {
             if (warMonster != null && healMonster != null) {
                 let chosen = farming;
                 for (monster in monsterhunts){
