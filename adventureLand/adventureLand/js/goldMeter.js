@@ -15,7 +15,7 @@ function init_goldmeter(mob) {
     let $ = parent.$;
     let brc = $('#bottomrightcorner');
 
-    brc.find('#goldtimer').remove();
+    //brc.find('#goldtimer').remove();
 
     let xpt_container = $('<div id="goldtimer"' + mob +'></div>').css({
         fontSize: '28px',
