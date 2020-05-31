@@ -1,18 +1,23 @@
 // Gold meter stolen from https://github.com/Spadar/AdventureLand/blob/master/GUI/GoldMeter.js
 var startTime = new Date();
 var sumGold = 0;
+var meters = [];
 
 setInterval(function () {
+    if (!meters.contains(get("hunting"))) {
+        meters.push(get("hunting"));
+        init_goldmeter(get("hunting"));
+    }
     update_goldmeter();
 }, 100);
 
-function init_goldmeter() {
+function init_goldmeter(mob) {
     let $ = parent.$;
     let brc = $('#bottomrightcorner');
 
     brc.find('#goldtimer').remove();
 
-    let xpt_container = $('<div id="goldtimer"></div>').css({
+    let xpt_container = $('<div id="goldtimer"' + mob +'></div>').css({
         fontSize: '28px',
         color: 'white',
         textAlign: 'center',
@@ -23,7 +28,7 @@ function init_goldmeter() {
     });
 
     //vertical centering in css is fun
-    let xptimer = $('<div id="goldtimercontent"></div>')
+    let xptimer = $('<div id="goldtimercontent' + mob +'"></div>')
         .css({
             display: 'table-cell',
             verticalAlign: 'middle'
@@ -43,7 +48,7 @@ function updateGoldTimerList() {
 
     var goldString = "<div>" + gold + " Gold/Hr" + "</div>";
 
-    $('#' + "goldtimercontent").html(goldString).css({
+    $('#' + "goldtimercontent" + get("hunting")).html(goldString).css({
         background: 'black',
         border: 'solid gray',
         borderWidth: '5px 5px',
@@ -97,10 +102,6 @@ function goldMeterGameLogHandler(event) {
         var gold = parseInt(event.message.replace(" gold", "").replace(",", ""));
 
         sumGold += gold;
-    }
-    if (event.includes("killed a")) {
-        var mob = event.split("killed a")[1];
-        game_log(mob);
     }
 }
 
