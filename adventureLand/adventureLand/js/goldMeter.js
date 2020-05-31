@@ -77,12 +77,9 @@ function getGold(mob) {
     elapsed[mob] = elapsed[mob] + (new Date() - startTime);
     startTime = new Date();
 
-    console.log(mob + ":" + elapsed[mob]);
-
     var goldPerSecond = sumGold[mob] / (elapsed[mob] / 1000);
 
     let gph = parseInt(goldPerSecond * 60 * 60).toLocaleString('en');
-    console.log("gph:" + gph);
     return gph;
 }
 
@@ -115,7 +112,6 @@ function goldMeterGameLogHandler(event) {
             sumGold[currentMob] = 0;
         }
         sumGold[currentMob] += gold;
-        console.log(currentMob + " gold:" + sumGold[currentMob]);
     }
 }
 
