@@ -37,6 +37,7 @@ setInterval(function () {
                 }
             } else {
                 set("Kracken", null);
+                set("chosenMHunt", false);
             }
         }
 
