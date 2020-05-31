@@ -21,6 +21,7 @@ setInterval(function () {
         if (character.rip) {
             respawn();
             smart_move(farming);
+            set("hunting", farming);
             return;
         }
 
