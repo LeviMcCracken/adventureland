@@ -2,14 +2,12 @@
 var startTime = new Date();
 var elapsed = {};
 var sumGold = 0;
-var meters = [];
 var currentMob;
 
 setInterval(function () {
     let mob = get("hunting");
     if (currentMob != mob){
-        if (!meters.includes(mob)) {
-            meters.push(mob);
+        if (!elapsed.includes(mob)) {
             elapsed[mob] = 0;
             init_goldmeter(mob);
         }
@@ -78,9 +76,13 @@ function update_goldmeter() {
 function getGold(mob) {
     elapsed[mob] = elapsed[mob] + (new Date() - startTime);
 
+    console.log(mob + ":" + elapsed[mob]);
+
     var goldPerSecond = parseFloat(Math.round((sumGold / (elapsed[mob] / 1000)) * 100) / 100);
 
-    return parseInt(goldPerSecond * 60 * 60).toLocaleString('en');
+    let gph = parseInt(goldPerSecond * 60 * 60).toLocaleString('en');
+    console.log("gph:" + gph);
+    return gph;
 }
 
 //Clean out an pre-existing listeners
