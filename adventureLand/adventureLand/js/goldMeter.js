@@ -46,7 +46,7 @@ function updateGoldTimerList() {
 
     var gold = getGold();
 
-    var goldString = "<div>" + gold + " Gold/Hr" + "</div>";
+    var goldString = "<div>" + gold + " Gold/Hr " + get("hunting") + "</div>";
 
     $('#' + "goldtimercontent" + get("hunting")).html(goldString).css({
         background: 'black',
