@@ -1,7 +1,7 @@
 // Gold meter stolen from https://github.com/Spadar/AdventureLand/blob/master/GUI/GoldMeter.js
 var startTime = new Date();
 var elapsed = {};
-var sumGold = 0;
+var sumGold = {};
 var currentMob;
 
 setInterval(function () {
@@ -78,7 +78,7 @@ function getGold(mob) {
 
     console.log(mob + ":" + elapsed[mob]);
 
-    var goldPerSecond = parseFloat(Math.round((sumGold / (elapsed[mob] / 1000)) * 100) / 100);
+    var goldPerSecond = parseFloat(Math.round((sumGold[mob] / (elapsed[mob] / 1000)) * 100) / 100);
 
     let gph = parseInt(goldPerSecond * 60 * 60).toLocaleString('en');
     console.log("gph:" + gph);
@@ -102,7 +102,7 @@ function register_goldmeterhandler(event, handler) {
 
 function goldMeterGameResponseHandler(event) {
     if (event.response == "gold_received") {
-        sumGold += event.gold;
+        sumGold[currentMob] += event.gold;
     }
 }
 
@@ -110,7 +110,8 @@ function goldMeterGameLogHandler(event) {
     if (event.color == "gold") {
         var gold = parseInt(event.message.replace(" gold", "").replace(",", ""));
 
-        sumGold += gold;
+        sumGold[currentMob] += gold;
+        console.log(currentMob + " gold:" + sumGold[currentMob]);
     }
 }
 
