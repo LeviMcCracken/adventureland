@@ -75,6 +75,7 @@ function update_goldmeter() {
 
 function getGold(mob) {
     elapsed[mob] = elapsed[mob] + (new Date() - startTime);
+    startTime = new Date();
 
     console.log(mob + ":" + elapsed[mob]);
 
