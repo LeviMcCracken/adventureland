@@ -110,6 +110,9 @@ function goldMeterGameLogHandler(event) {
     if (event.color == "gold") {
         var gold = parseInt(event.message.replace(" gold", "").replace(",", ""));
 
+        if (!(currentMob in sumGold)){
+            sumGold[currentMob] = 0;
+        }
         sumGold[currentMob] += gold;
         console.log(currentMob + " gold:" + sumGold[currentMob]);
     }
