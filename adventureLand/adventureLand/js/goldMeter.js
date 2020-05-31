@@ -7,7 +7,7 @@ var currentMob;
 setInterval(function () {
     let mob = get("hunting");
     if (currentMob != mob){
-        if (!elapsed.includes(mob)) {
+        if (!(mob in elapsed)) {
             elapsed[mob] = 0;
             init_goldmeter(mob);
         }
