@@ -54,7 +54,7 @@ function updateGoldTimerList() {
 
     let mob = get("hunting");
 
-    var gold = getGold();
+    var gold = getGold(mob);
 
     var goldString = "<div>" + gold + " Gold/Hr " + mob + "</div>";
 
