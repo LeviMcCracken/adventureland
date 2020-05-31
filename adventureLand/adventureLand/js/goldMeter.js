@@ -98,6 +98,10 @@ function goldMeterGameLogHandler(event) {
 
         sumGold += gold;
     }
+    if (event.color == "grey") {
+        var mob = event.message.split("killed a")[1];
+        game_log(mob);
+    }
 }
 
 
