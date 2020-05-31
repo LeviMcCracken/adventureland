@@ -26,6 +26,10 @@ setInterval(function () {
             return;
         }
 
+        if (!(leader in get_party())) {
+            leave_party();
+        }
+
         if (character && character.s) {
             if (character.s.monsterhunt && character.s.monsterhunt.c != 0) {
                 set("KrackenHeals", character.s.monsterhunt.id);

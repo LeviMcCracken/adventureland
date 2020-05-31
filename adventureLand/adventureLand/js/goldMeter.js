@@ -78,7 +78,7 @@ function getGold(mob) {
 
     console.log(mob + ":" + elapsed[mob]);
 
-    var goldPerSecond = parseFloat(Math.round((sumGold[mob] / (elapsed[mob] / 1000)) * 100) / 100);
+    var goldPerSecond = sumGold[mob] / (elapsed[mob] / 1000);
 
     let gph = parseInt(goldPerSecond * 60 * 60).toLocaleString('en');
     console.log("gph:" + gph);
