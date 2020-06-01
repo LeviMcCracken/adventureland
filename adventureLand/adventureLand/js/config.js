@@ -10,4 +10,4 @@ var alwaysKite = false;
 var farming = "bee";
 
 var monsterhunts = ["iceroamer", "bat", "goo", "crab", "bee", "minimush", "frog", "squigtoad",
-                    "ghost", "squig", "crabx", "osnake", "snake", "rat", "armadillo"];
+                    "tortoise", "ghost", "squig", "crabx", "osnake", "snake", "rat", "armadillo"];

@@ -8,6 +8,15 @@ var buying = false;
 var pots = [G.items.mpot1, G.items.hpot1];
 
 setInterval(function () {
+    for (member in party){
+        if (get_player(party[member]).map != character.map || (get_player(party[member]).map == character.map && distance(get_player(party[member])) > 200)) {
+            parent.use_skill("magiport", get_player(party[member]));
+        }
+    }
+}, 1000 * 30); // Loops every 1/4 seconds.
+
+
+setInterval(function () {
 
     start_party();
 
