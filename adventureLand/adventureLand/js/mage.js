@@ -9,7 +9,7 @@ var pots = [G.items.mpot1, G.items.hpot1];
 
 setInterval(function () {
     for (member in party){
-        if (simple_distance(character, get_player(party[member])) > 200)) {
+        if (simple_distance(character, get_player(party[member])) > 200) {
             parent.use_skill("magiport", get_player(party[member]));
         }
     }
