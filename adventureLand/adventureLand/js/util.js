@@ -171,14 +171,19 @@ function on_party_invite(name) {
     }
 }
 
+
+const sleep = (milliseconds) => {
+    return new Promise(resolve => setTimeout(resolve, milliseconds))
+}
+
 function on_magiport(name) {
     if (name == leader) {
-        sleep(1000 * 20);
-        if (simple_distance(character, get_character(name)) > 400){
-            accept_magiport(name);
-        }
+        sleep(1000 * 20).then(() => {
+            if (simple_distance(character, get_character(name)) > 400) {
+                accept_magiport(name);
+            }
+        });
     }
-
 }
 
 var angle = 0;
