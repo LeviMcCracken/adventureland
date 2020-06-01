@@ -54,7 +54,7 @@ setInterval(function () {
             myMonster = get("epyonite");
         }
         let hunting = get("hunting");
-        if (null == get("chosenMHunt") && hunting != warMonster && hunting != healMonster && (hunting != myMonster )) {
+        if (!get("chosenMHunt") && hunting != warMonster && hunting != healMonster && (hunting != myMonster )) {
             if (warMonster != null && healMonster != null && null != myMonster) {
                 let chosen = farming;
                 for (monster in monsterhunts){
