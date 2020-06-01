@@ -7,7 +7,7 @@ var partyheal_thresh = 400;
 var leader = "epyonite";
 var party = ["epyonite", "Kracken", "KrackenHeals"];
 var alwaysKite = false;
-var farming = "bee";
+var farming = "iceroamer";
 
 var monsterhunts = ["iceroamer", "bat", "goo", "crab", "bee", "minimush", "frog", "squigtoad",
                     "tortoise", "ghost", "squig", "crabx", "osnake", "snake", "rat", "armadillo"];

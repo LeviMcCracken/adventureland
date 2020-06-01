@@ -97,7 +97,7 @@ setInterval(function () {
             } else if (null == target && character.max_hp - character.hp > pots[1].gives[1] + 100) {
                 set_message("Healing Break");
             } else {
-                target = get_nearest_monster({ min_xp: 100, max_att: max_att_p });
+                target = get_nearest_monster({ min_xp: 100, max_att: max_att_p, type: get("hunting") });
                 if (null != target) {
                     change_target(target)
                 } else {
