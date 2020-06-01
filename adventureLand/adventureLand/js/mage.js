@@ -9,7 +9,7 @@ var pots = [G.items.mpot1, G.items.hpot1];
 
 setInterval(function () {
     for (member in party){
-        if (simple_distance(character, get_player(party[member])) > 200) {
+        if (simple_distance(character, get_player(party[member])) > 400) {
             parent.use_skill("magiport", get_player(party[member]));
         }
     }
@@ -51,10 +51,10 @@ setInterval(function () {
         let healMonster = get("KrackenHeals");
         let myMonster = null;
         if (null != character.s.monsterhunt){
-            myMonster = character.s.monsterhunt.id;
+            myMonster = get("epyonite");
         }
         let hunting = get("hunting");
-        if (!get("chosenMHunt") && hunting != warMonster && hunting != healMonster && (hunting != myMonster )) {
+        if (null == get("chosenMHunt") && hunting != warMonster && hunting != healMonster && (hunting != myMonster )) {
             if (warMonster != null && healMonster != null && null != myMonster) {
                 let chosen = farming;
                 for (monster in monsterhunts){
