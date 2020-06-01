@@ -4,6 +4,10 @@ var elapsed = {};
 var sumGold = {};
 var currentMob;
 
+
+let $ = parent.$;
+let brc = $('#bottomrightcorner');
+brc.find('[id^=goldtimer]').remove();
 setInterval(function () {
     let mob = get("hunting");
     if (currentMob != mob){
@@ -21,7 +25,6 @@ function init_goldmeter(mob) {
     let $ = parent.$;
     let brc = $('#bottomrightcorner');
 
-    brc.find('#goldtimer').remove();
 
     let xpt_container = $('<div id="goldtimer' + mob +'"></div>').css({
         fontSize: '28px',
