@@ -76,8 +76,11 @@ function acquireTarget(c) {
     if (!ret) {
         ret = getLeadersTarget(c);
     }
-    if (null == ret){
+    if (null == ret) {
         ret = get_nearest_monster({ min_xp: 100, max_att: max_att_p, type: get("hunting") });
+    }
+    if (null == ret && get("hunting") == "osnake") {
+        target = get_nearest_monster({ min_xp: 100, max_att: max_att_p, type: "snake" });
     }
     //if (!ret) {
     //    ret = getPriorityTarget();
