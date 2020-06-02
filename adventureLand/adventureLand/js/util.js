@@ -178,13 +178,13 @@ function on_party_invite(name) {
 }
 
 
-const sleep = (milliseconds) => {
+const mysleep = (milliseconds) => {
     return new Promise(resolve => setTimeout(resolve, milliseconds))
 }
 
 function on_magiport(name) {
     if (name == leader) {
-        sleep(1000 * 20).then(() => {
+        mysleep(1000 * 20).then(() => {
             if (simple_distance(character, get_player(name)) > 400) {
                 accept_magiport(name);
             }
