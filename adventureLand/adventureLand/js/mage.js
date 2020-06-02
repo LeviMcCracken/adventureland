@@ -98,7 +98,7 @@ setInterval(function () {
                 set_message("Healing Break");
             } else {
                 target = get_nearest_monster({ min_xp: 100, max_att: max_att_p, type: "phoenix" });
-                if (null = target) {
+                if (null == target) {
                     target = get_nearest_monster({ min_xp: 100, max_att: max_att_p, type: get("hunting") });
                 }
                 if (target == null && get("hunting") == "osnake") {
