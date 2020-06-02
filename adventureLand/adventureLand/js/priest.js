@@ -32,10 +32,9 @@ setInterval(function () {
 
         if (character.s.monsterhunt && character.s.monsterhunt.c != 0) {
             set("KrackenHeals", character.s.monsterhunt.id);
-        } else if (character.s.monsterhunt && character.s.monsterhunt.c == 0 &&
-            null != get("KrackenHeals")) {
+        } else if (character.s.monsterhunt && character.s.monsterhunt.c == 0 &&  false != get("KrackenHeals")) {
             send_turn_in_monster_hunt();
-            set("KrackenHeals", null);
+            set("KrackenHeals", false);
         }
 
         if (!attack_mode || is_moving(character)) return;

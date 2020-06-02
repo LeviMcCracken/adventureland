@@ -40,10 +40,9 @@ setInterval(function () {
 
         if (character.s.monsterhunt && character.s.monsterhunt.c != 0) {
             set("epyonite", character.s.monsterhunt.id);
-        } else if (character.s.monsterhunt && character.s.monsterhunt.c == 0 &&
-            null != get("epyonite")) {
+        } else if (character.s.monsterhunt && character.s.monsterhunt.c == 0 && false != get("epyonite")) {
             send_turn_in_monster_hunt();
-            set("epyonite", null);
+            set("epyonite", false);
         }
         
 
