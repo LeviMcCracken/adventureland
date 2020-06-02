@@ -238,6 +238,7 @@ function start_monster_hunt_quest() {
 
 function complete_monster_hunt_quest() {
     parent.socket.emit('monsterhunt');
+    parent.socket.emit('monsterhunt');
     set("hunting", farming);
 }
 
